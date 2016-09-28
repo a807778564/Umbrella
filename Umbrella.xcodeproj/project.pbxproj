@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2C48C18B1D9B62BA00E6BEA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C18A1D9B62BA00E6BEA0 /* main.m */; };
 		2C48C18E1D9B62BA00E6BEA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C18D1D9B62BA00E6BEA0 /* AppDelegate.m */; };
-		2C48C1911D9B62BA00E6BEA0 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C1901D9B62BA00E6BEA0 /* LoginController.m */; };
 		2C48C1941D9B62BA00E6BEA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C48C1921D9B62BA00E6BEA0 /* Main.storyboard */; };
 		2C48C1961D9B62BA00E6BEA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C48C1951D9B62BA00E6BEA0 /* Assets.xcassets */; };
 		2C48C1991D9B62BA00E6BEA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C48C1971D9B62BA00E6BEA0 /* LaunchScreen.storyboard */; };
@@ -54,6 +53,7 @@
 		2C48C22B1D9B995000E6BEA0 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C22A1D9B995000E6BEA0 /* RegisterController.m */; };
 		2C48C2331D9BA14100E6BEA0 /* FormatChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C2321D9BA14100E6BEA0 /* FormatChecker.m */; };
 		2C48C2361D9BB71C00E6BEA0 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C2351D9BB71C00E6BEA0 /* BaseController.m */; };
+		2C48C2391D9BC26A00E6BEA0 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C2381D9BC26A00E6BEA0 /* LoginController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,8 +61,6 @@
 		2C48C18A1D9B62BA00E6BEA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2C48C18C1D9B62BA00E6BEA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C48C18D1D9B62BA00E6BEA0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2C48C18F1D9B62BA00E6BEA0 /* LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = ../LoginController.h; sourceTree = "<group>"; };
-		2C48C1901D9B62BA00E6BEA0 /* LoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = ../LoginController.m; sourceTree = "<group>"; };
 		2C48C1931D9B62BA00E6BEA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C48C1951D9B62BA00E6BEA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C48C1981D9B62BA00E6BEA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -156,6 +154,8 @@
 		2C48C2321D9BA14100E6BEA0 /* FormatChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatChecker.m; sourceTree = "<group>"; };
 		2C48C2341D9BB71C00E6BEA0 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
 		2C48C2351D9BB71C00E6BEA0 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
+		2C48C2371D9BC26A00E6BEA0 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		2C48C2381D9BC26A00E6BEA0 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,8 +215,8 @@
 		2C48C1A01D9B88CF00E6BEA0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				2C48C18F1D9B62BA00E6BEA0 /* LoginController.h */,
-				2C48C1901D9B62BA00E6BEA0 /* LoginController.m */,
+				2C48C2371D9BC26A00E6BEA0 /* LoginController.h */,
+				2C48C2381D9BC26A00E6BEA0 /* LoginController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -511,7 +511,6 @@
 				2C48C2331D9BA14100E6BEA0 /* FormatChecker.m in Sources */,
 				2C48C2171D9B8ADC00E6BEA0 /* View+MASAdditions.m in Sources */,
 				2C48C21E1D9B8ADC00E6BEA0 /* UILabel+simpleinit.m in Sources */,
-				2C48C1911D9B62BA00E6BEA0 /* LoginController.m in Sources */,
 				2C48C21B1D9B8ADC00E6BEA0 /* UIColor+ColorWithHex.m in Sources */,
 				2C48C22B1D9B995000E6BEA0 /* RegisterController.m in Sources */,
 				2C48C2101D9B8ADC00E6BEA0 /* MASConstraint.m in Sources */,
@@ -534,6 +533,7 @@
 				2C48C2021D9B8ADC00E6BEA0 /* AFURLRequestSerialization.m in Sources */,
 				2C48C20F1D9B8ADC00E6BEA0 /* MASCompositeConstraint.m in Sources */,
 				2C48C2041D9B8ADC00E6BEA0 /* AFURLSessionManager.m in Sources */,
+				2C48C2391D9BC26A00E6BEA0 /* LoginController.m in Sources */,
 				2C48C20E1D9B8ADC00E6BEA0 /* UIWebView+AFNetworking.m in Sources */,
 				2C48C18E1D9B62BA00E6BEA0 /* AppDelegate.m in Sources */,
 				2C48C2281D9B901600E6BEA0 /* HttpManager.m in Sources */,
@@ -701,6 +701,7 @@
 				2C48C19F1D9B62BA00E6BEA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
