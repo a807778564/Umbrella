@@ -7,6 +7,7 @@
 //
 
 #import "MainController.h"
+#import "UmbrellaView.h"
 
 @interface MainController ()
 
@@ -18,11 +19,19 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    
-    
+    UmbrellaView *um1 = [[UmbrellaView alloc] init];
+    [self.view addSubview:um1];
+    [um1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.leading.equalTo(self.view.mas_leading).offset(44);
+        make.trailing.equalTo(self.view.mas_trailing).offset(-44);
+        make.height.equalTo(um1.mas_width);
+    }];
     
     // Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

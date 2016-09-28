@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8DA7CB8A5E99E9B0E0DF11730996E6C1603ADA92",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8DA7CB8A5E99E9B0E0DF11730996E6C1603ADA92" : 9223372036854775807,
+    "EADFB05E77A577FBC962D5CC9A1667A099684B72" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D6A072B6-6A3D-4C1B-899E-720CC7DDABEE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8DA7CB8A5E99E9B0E0DF11730996E6C1603ADA92" : "Umbrella\/",
+    "EADFB05E77A577FBC962D5CC9A1667A099684B72" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Umbrella",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Umbrella.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.oschina.net:git.hrscode.net\/Umbrella.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8DA7CB8A5E99E9B0E0DF11730996E6C1603ADA92"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.oschina.net:git.hrscode.net\/vrbbs.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EADFB05E77A577FBC962D5CC9A1667A099684B72"
+    }
+  ]
+}

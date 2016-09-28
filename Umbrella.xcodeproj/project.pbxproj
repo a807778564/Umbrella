@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C48C18B1D9B62BA00E6BEA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C18A1D9B62BA00E6BEA0 /* main.m */; };
-		2C48C18E1D9B62BA00E6BEA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C18D1D9B62BA00E6BEA0 /* AppDelegate.m */; };
+		1C836EE11D9BF3E300DD838C /* UmbrellaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C836EE01D9BF3E300DD838C /* UmbrellaView.m */; };
+		1C836EE91D9C057F00DD838C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C836EE41D9C057F00DD838C /* AppDelegate.m */; };
+		1C836EEA1D9C057F00DD838C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C836EE51D9C057F00DD838C /* Info.plist */; };
+		1C836EEB1D9C057F00DD838C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C836EE61D9C057F00DD838C /* main.m */; };
 		2C48C1941D9B62BA00E6BEA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C48C1921D9B62BA00E6BEA0 /* Main.storyboard */; };
 		2C48C1961D9B62BA00E6BEA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C48C1951D9B62BA00E6BEA0 /* Assets.xcassets */; };
 		2C48C1991D9B62BA00E6BEA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C48C1971D9B62BA00E6BEA0 /* LaunchScreen.storyboard */; };
@@ -55,18 +57,20 @@
 		2C48C2361D9BB71C00E6BEA0 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C2351D9BB71C00E6BEA0 /* BaseController.m */; };
 		2C48C2391D9BC26A00E6BEA0 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C2381D9BC26A00E6BEA0 /* LoginController.m */; };
 		2C48C23C1D9BC3AD00E6BEA0 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C23B1D9BC3AD00E6BEA0 /* MainController.m */; };
-		2C48C23F1D9BCCCF00E6BEA0 /* UmbrellaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C23E1D9BCCCF00E6BEA0 /* UmbrellaView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C836EDF1D9BF3E300DD838C /* UmbrellaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmbrellaView.h; sourceTree = "<group>"; };
+		1C836EE01D9BF3E300DD838C /* UmbrellaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmbrellaView.m; sourceTree = "<group>"; };
+		1C836EE31D9C057F00DD838C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1C836EE41D9C057F00DD838C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1C836EE51D9C057F00DD838C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C836EE61D9C057F00DD838C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1C836EE81D9C057F00DD838C /* Umbrella_Header.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Umbrella_Header.pch; sourceTree = "<group>"; };
 		2C48C1861D9B62BA00E6BEA0 /* Umbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Umbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C48C18A1D9B62BA00E6BEA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2C48C18C1D9B62BA00E6BEA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2C48C18D1D9B62BA00E6BEA0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2C48C1931D9B62BA00E6BEA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C48C1951D9B62BA00E6BEA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C48C1981D9B62BA00E6BEA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2C48C19A1D9B62BA00E6BEA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C48C1A61D9B8ADC00E6BEA0 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		2C48C1A71D9B8ADC00E6BEA0 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		2C48C1A81D9B8ADC00E6BEA0 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -145,7 +149,6 @@
 		2C48C1F81D9B8ADC00E6BEA0 /* UILabel+simpleinit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+simpleinit.m"; sourceTree = "<group>"; };
 		2C48C1FA1D9B8ADC00E6BEA0 /* UIView+toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+toast.h"; sourceTree = "<group>"; };
 		2C48C1FB1D9B8ADC00E6BEA0 /* UIView+toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+toast.m"; sourceTree = "<group>"; };
-		2C48C2211D9B8BE300E6BEA0 /* Umbrella_Header.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Umbrella_Header.pch; sourceTree = "<group>"; };
 		2C48C2221D9B8C7000E6BEA0 /* UILabel+ofen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ofen.h"; sourceTree = "<group>"; };
 		2C48C2231D9B8C7000E6BEA0 /* UILabel+ofen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ofen.m"; sourceTree = "<group>"; };
 		2C48C2261D9B901600E6BEA0 /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpManager.h; sourceTree = "<group>"; };
@@ -160,8 +163,6 @@
 		2C48C2381D9BC26A00E6BEA0 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		2C48C23A1D9BC3AD00E6BEA0 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		2C48C23B1D9BC3AD00E6BEA0 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
-		2C48C23D1D9BCCCF00E6BEA0 /* UmbrellaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmbrellaView.h; sourceTree = "<group>"; };
-		2C48C23E1D9BCCCF00E6BEA0 /* UmbrellaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmbrellaView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,10 +176,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C836EDE1D9BF38E00DD838C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1C836EDF1D9BF3E300DD838C /* UmbrellaView.h */,
+				1C836EE01D9BF3E300DD838C /* UmbrellaView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1C836EE21D9C057F00DD838C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C836EE31D9C057F00DD838C /* AppDelegate.h */,
+				1C836EE41D9C057F00DD838C /* AppDelegate.m */,
+				1C836EE51D9C057F00DD838C /* Info.plist */,
+				1C836EE61D9C057F00DD838C /* main.m */,
+				1C836EE81D9C057F00DD838C /* Umbrella_Header.pch */,
+			);
+			name = "Supporting Files";
+			path = "Umbrella/Supporting Files";
+			sourceTree = "<group>";
+		};
 		2C48C17D1D9B62BA00E6BEA0 = {
 			isa = PBXGroup;
 			children = (
 				2C48C1881D9B62BA00E6BEA0 /* Umbrella */,
+				1C836EE21D9C057F00DD838C /* Supporting Files */,
 				2C48C1871D9B62BA00E6BEA0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -198,24 +222,11 @@
 				2C48C1A21D9B88CF00E6BEA0 /* Register */,
 				2C48C1A11D9B88CF00E6BEA0 /* Main */,
 				2C48C1A31D9B8ADC00E6BEA0 /* Utils */,
-				2C48C18C1D9B62BA00E6BEA0 /* AppDelegate.h */,
-				2C48C18D1D9B62BA00E6BEA0 /* AppDelegate.m */,
 				2C48C1921D9B62BA00E6BEA0 /* Main.storyboard */,
 				2C48C1951D9B62BA00E6BEA0 /* Assets.xcassets */,
 				2C48C1971D9B62BA00E6BEA0 /* LaunchScreen.storyboard */,
-				2C48C19A1D9B62BA00E6BEA0 /* Info.plist */,
-				2C48C2211D9B8BE300E6BEA0 /* Umbrella_Header.pch */,
-				2C48C1891D9B62BA00E6BEA0 /* Supporting Files */,
 			);
 			path = Umbrella;
-			sourceTree = "<group>";
-		};
-		2C48C1891D9B62BA00E6BEA0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2C48C18A1D9B62BA00E6BEA0 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		2C48C1A01D9B88CF00E6BEA0 /* Login */ = {
@@ -230,12 +241,11 @@
 		2C48C1A11D9B88CF00E6BEA0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1C836EDE1D9BF38E00DD838C /* Views */,
 				2C48C2341D9BB71C00E6BEA0 /* BaseController.h */,
 				2C48C2351D9BB71C00E6BEA0 /* BaseController.m */,
 				2C48C23A1D9BC3AD00E6BEA0 /* MainController.h */,
 				2C48C23B1D9BC3AD00E6BEA0 /* MainController.m */,
-				2C48C23D1D9BCCCF00E6BEA0 /* UmbrellaView.h */,
-				2C48C23E1D9BCCCF00E6BEA0 /* UmbrellaView.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -497,6 +507,7 @@
 				2C48C1991D9B62BA00E6BEA0 /* LaunchScreen.storyboard in Resources */,
 				2C48C1961D9B62BA00E6BEA0 /* Assets.xcassets in Resources */,
 				2C48C2051D9B8ADC00E6BEA0 /* LICENSE in Resources */,
+				1C836EEA1D9C057F00DD838C /* Info.plist in Resources */,
 				2C48C1941D9B62BA00E6BEA0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C836EE91D9C057F00DD838C /* AppDelegate.m in Sources */,
 				2C48C2151D9B8ADC00E6BEA0 /* NSArray+MASAdditions.m in Sources */,
 				2C48C20C1D9B8ADC00E6BEA0 /* UIProgressView+AFNetworking.m in Sources */,
 				2C48C21C1D9B8ADC00E6BEA0 /* UIImage+Color.m in Sources */,
@@ -532,9 +544,10 @@
 				2C48C2061D9B8ADC00E6BEA0 /* README.md in Sources */,
 				2C48C21A1D9B8ADC00E6BEA0 /* UIButton+simpleinit.m in Sources */,
 				2C48C20B1D9B8ADC00E6BEA0 /* UIImageView+AFNetworking.m in Sources */,
+				1C836EEB1D9C057F00DD838C /* main.m in Sources */,
 				2C48C23C1D9BC3AD00E6BEA0 /* MainController.m in Sources */,
 				2C48C2031D9B8ADC00E6BEA0 /* AFURLResponseSerialization.m in Sources */,
-				2C48C23F1D9BCCCF00E6BEA0 /* UmbrellaView.m in Sources */,
+				1C836EE11D9BF3E300DD838C /* UmbrellaView.m in Sources */,
 				2C48C2081D9B8ADC00E6BEA0 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				2C48C2011D9B8ADC00E6BEA0 /* AFURLConnectionOperation.m in Sources */,
 				2C48C2001D9B8ADC00E6BEA0 /* AFSecurityPolicy.m in Sources */,
@@ -547,11 +560,9 @@
 				2C48C2041D9B8ADC00E6BEA0 /* AFURLSessionManager.m in Sources */,
 				2C48C2391D9BC26A00E6BEA0 /* LoginController.m in Sources */,
 				2C48C20E1D9B8ADC00E6BEA0 /* UIWebView+AFNetworking.m in Sources */,
-				2C48C18E1D9B62BA00E6BEA0 /* AppDelegate.m in Sources */,
 				2C48C2281D9B901600E6BEA0 /* HttpManager.m in Sources */,
 				2C48C21D1D9B8ADC00E6BEA0 /* UIImage+ImageEffects.m in Sources */,
 				2C48C2071D9B8ADC00E6BEA0 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				2C48C18B1D9B62BA00E6BEA0 /* main.m in Sources */,
 				2C48C2131D9B8ADC00E6BEA0 /* MASViewAttribute.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,8 +683,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = Umbrella/Umbrella_Header.pch;
-				INFOPLIST_FILE = Umbrella/Info.plist;
+				GCC_PREFIX_HEADER = "Umbrella/Supporting Files/Umbrella_Header.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Umbrella/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laber.Umbrella;
@@ -685,8 +696,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = Umbrella/Umbrella_Header.pch;
-				INFOPLIST_FILE = Umbrella/Info.plist;
+				GCC_PREFIX_HEADER = "Umbrella/Supporting Files/Umbrella_Header.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Umbrella/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laber.Umbrella;
