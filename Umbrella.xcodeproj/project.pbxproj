@@ -54,6 +54,8 @@
 		2C48C2331D9BA14100E6BEA0 /* FormatChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C2321D9BA14100E6BEA0 /* FormatChecker.m */; };
 		2C48C2361D9BB71C00E6BEA0 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C2351D9BB71C00E6BEA0 /* BaseController.m */; };
 		2C48C2391D9BC26A00E6BEA0 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C2381D9BC26A00E6BEA0 /* LoginController.m */; };
+		2C48C23C1D9BC3AD00E6BEA0 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C23B1D9BC3AD00E6BEA0 /* MainController.m */; };
+		2C48C23F1D9BCCCF00E6BEA0 /* UmbrellaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C23E1D9BCCCF00E6BEA0 /* UmbrellaView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +158,10 @@
 		2C48C2351D9BB71C00E6BEA0 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
 		2C48C2371D9BC26A00E6BEA0 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		2C48C2381D9BC26A00E6BEA0 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		2C48C23A1D9BC3AD00E6BEA0 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
+		2C48C23B1D9BC3AD00E6BEA0 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
+		2C48C23D1D9BCCCF00E6BEA0 /* UmbrellaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmbrellaView.h; sourceTree = "<group>"; };
+		2C48C23E1D9BCCCF00E6BEA0 /* UmbrellaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmbrellaView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +232,10 @@
 			children = (
 				2C48C2341D9BB71C00E6BEA0 /* BaseController.h */,
 				2C48C2351D9BB71C00E6BEA0 /* BaseController.m */,
+				2C48C23A1D9BC3AD00E6BEA0 /* MainController.h */,
+				2C48C23B1D9BC3AD00E6BEA0 /* MainController.m */,
+				2C48C23D1D9BCCCF00E6BEA0 /* UmbrellaView.h */,
+				2C48C23E1D9BCCCF00E6BEA0 /* UmbrellaView.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -522,7 +532,9 @@
 				2C48C2061D9B8ADC00E6BEA0 /* README.md in Sources */,
 				2C48C21A1D9B8ADC00E6BEA0 /* UIButton+simpleinit.m in Sources */,
 				2C48C20B1D9B8ADC00E6BEA0 /* UIImageView+AFNetworking.m in Sources */,
+				2C48C23C1D9BC3AD00E6BEA0 /* MainController.m in Sources */,
 				2C48C2031D9B8ADC00E6BEA0 /* AFURLResponseSerialization.m in Sources */,
+				2C48C23F1D9BCCCF00E6BEA0 /* UmbrellaView.m in Sources */,
 				2C48C2081D9B8ADC00E6BEA0 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				2C48C2011D9B8ADC00E6BEA0 /* AFURLConnectionOperation.m in Sources */,
 				2C48C2001D9B8ADC00E6BEA0 /* AFSecurityPolicy.m in Sources */,
