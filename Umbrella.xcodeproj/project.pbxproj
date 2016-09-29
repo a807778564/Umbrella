@@ -57,6 +57,10 @@
 		2C48C2361D9BB71C00E6BEA0 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C2351D9BB71C00E6BEA0 /* BaseController.m */; };
 		2C48C2391D9BC26A00E6BEA0 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C2381D9BC26A00E6BEA0 /* LoginController.m */; };
 		2C48C23C1D9BC3AD00E6BEA0 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48C23B1D9BC3AD00E6BEA0 /* MainController.m */; };
+		2C61B2A21D9CFA1200EDA5CB /* UmbrellaCheckView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61B2A11D9CFA1200EDA5CB /* UmbrellaCheckView.m */; };
+		2C61B2A41D9CFA1D00EDA5CB /* UmbrellaCheckView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C61B2A31D9CFA1D00EDA5CB /* UmbrellaCheckView.xib */; };
+		2C61B2A71D9D0CA300EDA5CB /* UmbrellaImageCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61B2A61D9D0CA300EDA5CB /* UmbrellaImageCheck.m */; };
+		2C61B2A91D9D0CB400EDA5CB /* UmbrellaImageCheck.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C61B2A81D9D0CB400EDA5CB /* UmbrellaImageCheck.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +167,12 @@
 		2C48C2381D9BC26A00E6BEA0 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		2C48C23A1D9BC3AD00E6BEA0 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		2C48C23B1D9BC3AD00E6BEA0 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
+		2C61B2A01D9CFA1200EDA5CB /* UmbrellaCheckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmbrellaCheckView.h; sourceTree = "<group>"; };
+		2C61B2A11D9CFA1200EDA5CB /* UmbrellaCheckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmbrellaCheckView.m; sourceTree = "<group>"; };
+		2C61B2A31D9CFA1D00EDA5CB /* UmbrellaCheckView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UmbrellaCheckView.xib; sourceTree = "<group>"; };
+		2C61B2A51D9D0CA300EDA5CB /* UmbrellaImageCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmbrellaImageCheck.h; sourceTree = "<group>"; };
+		2C61B2A61D9D0CA300EDA5CB /* UmbrellaImageCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmbrellaImageCheck.m; sourceTree = "<group>"; };
+		2C61B2A81D9D0CB400EDA5CB /* UmbrellaImageCheck.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UmbrellaImageCheck.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +191,12 @@
 			children = (
 				1C836EDF1D9BF3E300DD838C /* UmbrellaView.h */,
 				1C836EE01D9BF3E300DD838C /* UmbrellaView.m */,
+				2C61B2A01D9CFA1200EDA5CB /* UmbrellaCheckView.h */,
+				2C61B2A11D9CFA1200EDA5CB /* UmbrellaCheckView.m */,
+				2C61B2A31D9CFA1D00EDA5CB /* UmbrellaCheckView.xib */,
+				2C61B2A51D9D0CA300EDA5CB /* UmbrellaImageCheck.h */,
+				2C61B2A61D9D0CA300EDA5CB /* UmbrellaImageCheck.m */,
+				2C61B2A81D9D0CB400EDA5CB /* UmbrellaImageCheck.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -477,6 +493,7 @@
 				TargetAttributes = {
 					2C48C1851D9B62BA00E6BEA0 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = DHR8CPP4EK;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -505,7 +522,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C48C1991D9B62BA00E6BEA0 /* LaunchScreen.storyboard in Resources */,
+				2C61B2A41D9CFA1D00EDA5CB /* UmbrellaCheckView.xib in Resources */,
 				2C48C1961D9B62BA00E6BEA0 /* Assets.xcassets in Resources */,
+				2C61B2A91D9D0CB400EDA5CB /* UmbrellaImageCheck.xib in Resources */,
 				2C48C2051D9B8ADC00E6BEA0 /* LICENSE in Resources */,
 				1C836EEA1D9C057F00DD838C /* Info.plist in Resources */,
 				2C48C1941D9B62BA00E6BEA0 /* Main.storyboard in Resources */,
@@ -551,7 +570,9 @@
 				2C48C2081D9B8ADC00E6BEA0 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				2C48C2011D9B8ADC00E6BEA0 /* AFURLConnectionOperation.m in Sources */,
 				2C48C2001D9B8ADC00E6BEA0 /* AFSecurityPolicy.m in Sources */,
+				2C61B2A71D9D0CA300EDA5CB /* UmbrellaImageCheck.m in Sources */,
 				2C48C2181D9B8ADC00E6BEA0 /* ViewController+MASAdditions.m in Sources */,
+				2C61B2A21D9CFA1200EDA5CB /* UmbrellaCheckView.m in Sources */,
 				2C48C21F1D9B8ADC00E6BEA0 /* UIView+toast.m in Sources */,
 				2C48C1FE1D9B8ADC00E6BEA0 /* AFHTTPSessionManager.m in Sources */,
 				2C48C2121D9B8ADC00E6BEA0 /* MASLayoutConstraint.m in Sources */,
@@ -683,12 +704,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = DHR8CPP4EK;
 				GCC_PREFIX_HEADER = "Umbrella/Supporting Files/Umbrella_Header.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Umbrella/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laber.Umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4f00ce70-a1e6-4c15-9ae6-2c02c9f02e5c";
 			};
 			name = Debug;
 		};
@@ -696,12 +720,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = DHR8CPP4EK;
 				GCC_PREFIX_HEADER = "Umbrella/Supporting Files/Umbrella_Header.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Umbrella/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laber.Umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4f00ce70-a1e6-4c15-9ae6-2c02c9f02e5c";
 			};
 			name = Release;
 		};

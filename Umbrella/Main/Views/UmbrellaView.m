@@ -9,6 +9,7 @@
 #import "UmbrellaView.h"
 
 #define centerSelf CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
+#define defaultColor RGBACOLOR(250, 250, 250, 1)
 
 @implementation UmbrellaView
 
@@ -34,8 +35,8 @@
     [path1 closePath];
     //设置线宽
     path1.lineWidth = 1;
-    //设置填充颜色
-    UIColor *fillColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.png"]];
+    //设置填充颜色 [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.png"]]
+    UIColor *fillColor = RGBACOLOR(250, 250, 250, 1);
     [fillColor set];
     [path1 fill];
     //设置画笔颜色
@@ -52,7 +53,7 @@
     //设置线宽
     path2.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor2 = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.png"]];
+    UIColor *fillColor2 = RGBACOLOR(250, 250, 250, 1);
     [fillColor2 set];
     [path2 fill];
     //设置画笔颜色
@@ -69,7 +70,7 @@
     //设置线宽
     path3.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor3 = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.png"]];
+    UIColor *fillColor3 = RGBACOLOR(250, 250, 250, 1);
     [fillColor3 set];
     [path3 fill];
     //设置画笔颜色
@@ -86,7 +87,7 @@
     //设置线宽
     path4.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor4 = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.png"]];
+    UIColor *fillColor4 = RGBACOLOR(250, 250, 250, 1);
     [fillColor4 set];
     [path4 fill];
     //设置画笔颜色
@@ -103,7 +104,7 @@
     //设置线宽
     path5.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor5 = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.png"]];
+    UIColor *fillColor5 = RGBACOLOR(250, 250, 250, 1);
     [fillColor5 set];
     [path5 fill];
     //设置画笔颜色
@@ -120,7 +121,7 @@
     //设置线宽
     path6.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor6 = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.png"]];
+    UIColor *fillColor6 = RGBACOLOR(250, 250, 250, 1);
     [fillColor6 set];
     [path6 fill];
     //设置画笔颜色
@@ -137,7 +138,7 @@
     //设置线宽
     path7.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor7 = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.png"]];
+    UIColor *fillColor7 = RGBACOLOR(250, 250, 250, 1);
     [fillColor7 set];
     [path7 fill];
     //设置画笔颜色
@@ -154,7 +155,7 @@
     //设置线宽
     path8.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor8 = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.png"]];
+    UIColor *fillColor8 = RGBACOLOR(250, 250, 250, 1);
     [fillColor8 set];
     [path8 fill];
     //设置画笔颜色
