@@ -198,10 +198,10 @@
                                             <constraint firstAttribute="width" secondItem="yYG-A5-Yq0" secondAttribute="height" multiplier="1:1" id="gAw-sk-es8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="全选"/>
+                                        <state key="normal" title="取消"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awh-Iu-mzg">
-                                        <color key="backgroundColor" red="0.90196078431372551" green="0.45882352941176469" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.92549019607843142" green="0.82745098039215681" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="awh-Iu-mzg" secondAttribute="height" multiplier="1:1" id="NKe-4n-RtJ"/>
                                         </constraints>
@@ -209,7 +209,7 @@
                                         <state key="normal" title="双层"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hef-9Q-4qf">
-                                        <color key="backgroundColor" red="0.90196078430000004" green="0.45882352939999999" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.92549019607843142" green="0.82745098039215681" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="提交"/>
                                     </button>

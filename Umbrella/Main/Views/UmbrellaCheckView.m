@@ -10,15 +10,12 @@
 
 @interface UmbrellaCheckView()
 
-@property (nonatomic, strong) NSMutableArray *checkArray;
 @end
 
 @implementation UmbrellaCheckView
 
 - (void)awakeFromNib{
     [super awakeFromNib];
-    self.checkArray = [[NSMutableArray alloc] init];
-    
     float corner = (self.frame.size.width - 16*2 - 21*3);
     for (UIView *sub in self.subviews) {
         if ([sub isKindOfClass:[UIButton class]]) {
@@ -34,17 +31,50 @@
     }
 }
 
+- (void)setCheckArray:(NSMutableArray *)checkArray{
+    _checkArray = checkArray;
+}
+
+- (void)setOldCheck:(NSMutableArray *)oldCheck{
+    for (UIView *sub in self.subviews) {
+        if ([sub isKindOfClass:[UIButton class]]) {
+            UIButton *check = (UIButton *)sub;
+            if (!([check.titleLabel.text isEqualToString:@"确定"] || [check.titleLabel.text isEqualToString:@"取消"])) {
+                UIButton *check = (UIButton *)sub;
+                if (oldCheck.count <= 0) {
+                    check.selected = NO;
+                    [check setBackgroundColor:RGBACOLOR(246, 226, 77, 1)];
+                }else{
+                    for (NSNumber *checkNumber in oldCheck) {
+                        if ([check.titleLabel.text  integerValue] == [checkNumber integerValue] ) {
+                            check.selected = YES;
+                            [check setBackgroundColor:RGBACOLOR(231, 133, 47, 1)];
+                            break;
+                        }else{
+                            check.selected = NO;
+                            [check setBackgroundColor:RGBACOLOR(246, 226, 77, 1)];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 - (void)checkSanMian:(UIButton *)btn{
+    if (_checkArray == nil) {
+        _checkArray = [[NSMutableArray alloc] init];
+    }
     btn.selected = !btn.selected;
     if (btn.selected) {
         [btn setBackgroundColor:RGBACOLOR(231, 133, 47, 1)];
-        if (![self.checkArray containsObject:btn.titleLabel.text]) {
-            [self.checkArray addObject:btn.titleLabel.text];
+        if (![_checkArray containsObject:btn.titleLabel.text]) {
+            [_checkArray addObject:btn.titleLabel.text];
         }
     }else{
         [btn setBackgroundColor:RGBACOLOR(246, 226, 77, 1)];
-        if ([self.checkArray containsObject:btn.titleLabel.text]) {
-            [self.checkArray removeObject:btn.titleLabel.text];
+        if ([_checkArray containsObject:btn.titleLabel.text]) {
+            [_checkArray removeObject:btn.titleLabel.text];
         }
     }
 }
@@ -53,18 +83,9 @@
     if ([btn.titleLabel.text isEqualToString:@"确定"]) {
         NSLog(@"确定");
     }else{
-        for (UIView *sub in self.subviews) {
-            if ([sub isKindOfClass:[UIButton class]]) {
-                UIButton *check = (UIButton *)sub;
-                if (!([check.titleLabel.text isEqualToString:@"确定"] || [check.titleLabel.text isEqualToString:@"取消"])) {
-                    check.selected = NO;
-                    [check setBackgroundColor:RGBACOLOR(246, 226, 77, 1)];
-                }
-            }
-        }
-        [self.checkArray removeAllObjects];
+        [_checkArray removeAllObjects];
     }
-    self.didCheck(btn.titleLabel.text,self.checkArray);
+    self.didCheck(btn.titleLabel.text,_checkArray);
 }
 
 - (void)didCheckNumberFinish:(UmbreCheck)check{

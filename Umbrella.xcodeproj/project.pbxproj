@@ -61,6 +61,7 @@
 		2C61B2A41D9CFA1D00EDA5CB /* UmbrellaCheckView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C61B2A31D9CFA1D00EDA5CB /* UmbrellaCheckView.xib */; };
 		2C61B2A71D9D0CA300EDA5CB /* UmbrellaImageCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61B2A61D9D0CA300EDA5CB /* UmbrellaImageCheck.m */; };
 		2C61B2A91D9D0CB400EDA5CB /* UmbrellaImageCheck.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C61B2A81D9D0CB400EDA5CB /* UmbrellaImageCheck.xib */; };
+		2C76359E1D9E0D4C0008ED91 /* CheckImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C76359D1D9E0D4C0008ED91 /* CheckImageCollectionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +174,8 @@
 		2C61B2A51D9D0CA300EDA5CB /* UmbrellaImageCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmbrellaImageCheck.h; sourceTree = "<group>"; };
 		2C61B2A61D9D0CA300EDA5CB /* UmbrellaImageCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmbrellaImageCheck.m; sourceTree = "<group>"; };
 		2C61B2A81D9D0CB400EDA5CB /* UmbrellaImageCheck.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UmbrellaImageCheck.xib; sourceTree = "<group>"; };
+		2C76359C1D9E0D4C0008ED91 /* CheckImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckImageCollectionCell.h; sourceTree = "<group>"; };
+		2C76359D1D9E0D4C0008ED91 /* CheckImageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckImageCollectionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,8 @@
 				2C61B2A51D9D0CA300EDA5CB /* UmbrellaImageCheck.h */,
 				2C61B2A61D9D0CA300EDA5CB /* UmbrellaImageCheck.m */,
 				2C61B2A81D9D0CB400EDA5CB /* UmbrellaImageCheck.xib */,
+				2C76359C1D9E0D4C0008ED91 /* CheckImageCollectionCell.h */,
+				2C76359D1D9E0D4C0008ED91 /* CheckImageCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 				2C48C22B1D9B995000E6BEA0 /* RegisterController.m in Sources */,
 				2C48C2101D9B8ADC00E6BEA0 /* MASConstraint.m in Sources */,
 				2C48C1FD1D9B8ADC00E6BEA0 /* AFHTTPRequestOperationManager.m in Sources */,
+				2C76359E1D9E0D4C0008ED91 /* CheckImageCollectionCell.m in Sources */,
 				2C48C2141D9B8ADC00E6BEA0 /* MASViewConstraint.m in Sources */,
 				2C48C2361D9BB71C00E6BEA0 /* BaseController.m in Sources */,
 				2C48C1FF1D9B8ADC00E6BEA0 /* AFNetworkReachabilityManager.m in Sources */,
