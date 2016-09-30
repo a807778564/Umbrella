@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -61,7 +61,6 @@
                     <color key="backgroundColor" red="0.090196078431372548" green="0.62352941176470589" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="Cik-IQ-U7z"/>
-                        <constraint firstAttribute="width" constant="75" id="qq5-Fe-p00"/>
                     </constraints>
                     <state key="normal" title="确定"/>
                 </button>
@@ -90,7 +89,6 @@
                     <color key="backgroundColor" red="0.090196078431372548" green="0.60392156862745094" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="e1z-k5-nUo"/>
-                        <constraint firstAttribute="width" constant="75" id="gBn-9n-Ksb"/>
                     </constraints>
                     <state key="normal" title="取消"/>
                 </button>
@@ -119,6 +117,7 @@
                 <constraint firstItem="yCv-8h-unX" firstAttribute="top" secondItem="pzu-al-0lu" secondAttribute="top" constant="20" id="Uvc-Vo-LnQ"/>
                 <constraint firstItem="2zV-cS-YMJ" firstAttribute="width" secondItem="gI0-WN-YQZ" secondAttribute="width" id="ZZz-RN-yqA"/>
                 <constraint firstItem="dlP-4t-dWm" firstAttribute="top" secondItem="gI0-WN-YQZ" secondAttribute="bottom" constant="20" id="bJg-2R-vn9"/>
+                <constraint firstItem="Gnm-pj-5He" firstAttribute="leading" secondItem="KWK-1D-QDt" secondAttribute="trailing" constant="45" id="cjM-fJ-zFG"/>
                 <constraint firstItem="Ql6-D4-jhc" firstAttribute="width" secondItem="gI0-WN-YQZ" secondAttribute="width" id="czw-VG-nmT"/>
                 <constraint firstItem="fef-9c-ZwH" firstAttribute="height" secondItem="gI0-WN-YQZ" secondAttribute="height" id="d2A-oM-WyP"/>
                 <constraint firstAttribute="trailing" secondItem="Vxf-Xl-cOx" secondAttribute="trailing" constant="16" id="eKi-LP-qnX"/>
@@ -128,6 +127,7 @@
                 <constraint firstItem="A0L-Ve-V9x" firstAttribute="height" secondItem="gI0-WN-YQZ" secondAttribute="height" id="kks-Q8-hgo"/>
                 <constraint firstItem="KWK-1D-QDt" firstAttribute="top" secondItem="Ql6-D4-jhc" secondAttribute="bottom" constant="30" id="ndI-BJ-bQQ"/>
                 <constraint firstItem="fef-9c-ZwH" firstAttribute="top" secondItem="gI0-WN-YQZ" secondAttribute="top" id="opL-VO-l9j"/>
+                <constraint firstItem="Gnm-pj-5He" firstAttribute="width" secondItem="KWK-1D-QDt" secondAttribute="width" id="q5o-Bt-HVH"/>
                 <constraint firstItem="Gnm-pj-5He" firstAttribute="top" secondItem="7qc-36-cbk" secondAttribute="bottom" constant="30" id="qtK-go-Plf"/>
                 <constraint firstItem="gI0-WN-YQZ" firstAttribute="leading" secondItem="pzu-al-0lu" secondAttribute="leading" constant="16" id="tgc-YJ-not"/>
                 <constraint firstItem="Vxf-Xl-cOx" firstAttribute="top" secondItem="gI0-WN-YQZ" secondAttribute="top" id="ttB-c3-cNf"/>
@@ -137,7 +137,7 @@
                 <constraint firstItem="2zV-cS-YMJ" firstAttribute="leading" secondItem="Ql6-D4-jhc" secondAttribute="trailing" constant="21" id="xfs-sL-YFv"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-29.5" y="63.5"/>
+            <point key="canvasLocation" x="-918" y="78"/>
         </view>
     </objects>
 </document>

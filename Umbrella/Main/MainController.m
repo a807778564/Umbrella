@@ -67,8 +67,13 @@
     [self.checkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
         make.top.equalTo(self.view.mas_bottom);
-        make.trailing.equalTo(self.view.mas_trailing).offset(-60);
-        make.leading.equalTo(self.view.mas_leading).offset(60);
+        if (self.view.frame.size.width < 414) {
+            make.width.offset(255);
+        }else{
+            make.trailing.equalTo(self.view.mas_trailing).offset(-60);
+            make.leading.equalTo(self.view.mas_leading).offset(60);
+        }
+        
         make.height.equalTo(self.checkView.mas_width);
     }];
     [self.checkView didCheckNumberFinish:^(NSString *title, NSMutableArray *checkNumber) {
