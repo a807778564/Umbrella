@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^ChoseImage)(UIImage *image);
+
 @interface UmbrellaImageCheck : UIView
+
+@property (nonatomic, strong) NSString *cageteId;
+
+@property (nonatomic, copy) ChoseImage chose;
+
+- (void)didChoseImage:(ChoseImage)choseImage;
 
 @end

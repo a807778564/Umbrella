@@ -10,8 +10,9 @@
 #import "UmbrellaView.h"
 #import "UmbrellaCheckView.h"
 #import "UmbrellaImageCheck.h"
+#import "UmPhotoCutController.h"
 
-@interface MainController ()
+@interface MainController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *neiBtn;
 
@@ -81,13 +82,16 @@
     }];
     
     self.imageCkeck = [[[NSBundle mainBundle] loadNibNamed:@"UmbrellaImageCheck" owner:nil options:nil] firstObject];
+    [self.imageCkeck didChoseImage:^(UIImage *image) {
+        [self goToCutPhoto:image];
+    }];
     [self.view addSubview:self.imageCkeck];
     [self.imageCkeck mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
-//        make.top.equalTo(self.view.mas_bottom);
-        make.centerY.equalTo(self.view.mas_centerY);
-        make.trailing.equalTo(self.view.mas_trailing).offset(-60);
-        make.leading.equalTo(self.view.mas_leading).offset(60);
+        make.top.equalTo(self.view.mas_bottom);
+//        make.centerY.equalTo(self.view.mas_centerY);
+        make.trailing.equalTo(self.view.mas_trailing).offset(-40);
+        make.leading.equalTo(self.view.mas_leading).offset(40);
         make.height.equalTo(self.checkView.mas_width);
     }];
     
@@ -151,7 +155,7 @@
         }];
         [self.view layoutIfNeeded];
     }completion:^(BOOL finished) {
-        [self.view insertSubview:self.grayView atIndex:self.view.subviews.count-2];
+        [self.view insertSubview:self.grayView atIndex:self.view.subviews.count-3];
         self.grayView.backgroundColor = RGBACOLOR(0, 0, 0, 0.2);
     }];
     
@@ -177,15 +181,74 @@
 - (void)showAction:(NSArray *)cateArray{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alert addAction:[UIAlertAction actionWithTitle:@"手机图库" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        [self showHostImage];
     }]];
     for (int i = 0; i<cateArray.count; i++) {
         [alert addAction:[UIAlertAction actionWithTitle:cateArray[i][@"typeName"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             NSLog(@"%@",cateArray[i][@"typeName"]);
+            [self showImageCheckView:cateArray[i][@"typeCategoryId"]];
         }]];
     }
     [self presentViewController:alert animated:YES completion:^{
         
+    }];
+}
+
+//现实图片view
+- (void)showImageCheckView:(NSString *)cageId{
+    self.imageCkeck.cageteId = cageId;
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.imageCkeck mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view.mas_bottom).offset(-(self.sanmian.frame.size.height+self.sanmian.frame.origin.y));
+        }];
+        [self.view layoutIfNeeded];
+    }completion:^(BOOL finished) {
+        [self.view insertSubview:self.grayView atIndex:self.view.subviews.count-3];
+        self.grayView.backgroundColor = RGBACOLOR(0, 0, 0, 0.2);
+    }];
+}
+
+- (void)showHostImage{
+    // 跳转到相机或相册页面
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.allowsEditing = YES;
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:imagePickerController animated:YES completion:^{}];
+}
+
+#pragma mark - image picker delegte
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^{}];
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    userImageView.image = image;
+    
+//    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+//    UIImage *compressedImage = [UIImage imageWithData:imageData];
+    [self goToCutPhoto:image];
+}
+
+
+- (void)goToCutPhoto:(UIImage *)image{
+    UmPhotoCutController *um = [[UmPhotoCutController alloc] init];
+    um.hostImage = image;
+    UINavigationController *umNa = [[UINavigationController alloc] initWithRootViewController:um];
+    [self presentViewController:umNa animated:YES completion:^{
+        
+    }];
+    [um didCutImageFinish:^(UIImage *cutImage) {
+        [self.sanmian setCheckImage:cutImage];
+        
+        self.grayView.backgroundColor = [UIColor clearColor];
+        [self.view sendSubviewToBack:self.grayView];
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.imageCkeck mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view.mas_bottom);
+            }];
+            [self.view layoutIfNeeded];
+        }];
     }];
 }
 

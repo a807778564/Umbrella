@@ -10,4 +10,6 @@
 
 @interface UmbrellaView : UIView
 
+@property (nonatomic, strong) UIImage *checkImage;
+
 @end

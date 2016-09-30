@@ -15,6 +15,10 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *imageCollectiom;
 
+@property (nonatomic, strong) NSMutableArray *secmeArray;
+
+@property (nonatomic, strong) NSMutableArray *imagesArray;
+
 @end
 
 @implementation UmbrellaImageCheck
@@ -25,10 +29,36 @@
     [self.imageCollectiom registerClass:[CheckImageCollectionCell class] forCellWithReuseIdentifier:@"HDCheckImageCell"];
 }
 
+- (void)setCageteId:(NSString *)cageteId{
+    self.secmeArray = [[NSMutableArray alloc] init];
+    [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageType?" Parames:@{@"mobile":@"13361857030",@"typeId":cageteId} success:^(id successData) {
+        NSArray *cateArray = successData[@"object"];
+        [self.secmeArray addObjectsFromArray:cateArray];
+        for (int i = 0; i<self.secmeArray.count; i++) {
+            NSLog(@"%@",self.secmeArray[i]);
+            [self.cageCheck insertSegmentWithTitle:self.secmeArray[i][@"typeName"] atIndex:i animated:YES];
+        }
+        [self.cageCheck removeSegmentAtIndex:cateArray.count+1 animated:YES];
+        [self.cageCheck removeSegmentAtIndex:cateArray.count animated:YES];
+        [self.cageCheck setSelectedSegmentIndex:0];
+    } errorBlock:^(NSError *error) {
+        
+    }];
+}
+
+- (IBAction)checkCate:(UISegmentedControl *)sender {
+    [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageList" Parames:@{@"mobile":@"13361857030",@"typeCategoryId":self.secmeArray[sender.selectedSegmentIndex][@"typeCategoryId"]} success:^(id successData) {
+        self.imagesArray = successData[@"object"];
+        [self.imageCollectiom reloadData];
+    } errorBlock:^(NSError *error) {
+        
+    }];
+}
+
 #pragma mark UICollectionViewDelegate
 - (NSInteger)collectionView:( UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 30;
+    return self.imagesArray.count;
 }
 
 -(NSInteger )numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -53,7 +83,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     CheckImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HDCheckImageCell" forIndexPath:indexPath];
-    [cell.showImage setImage:[UIImage imageNamed:@"test"]];
+    [cell.showImage sd_setImageWithURL:[NSURL URLWithString:self.imagesArray[indexPath.row][@"imagePath"]] placeholderImage:nil options:SDWebImageRetryFailed];//imageId  imagePath
     return cell;
 }
 
@@ -64,9 +94,14 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-
+    CheckImageCollectionCell *cell = (CheckImageCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    UIImage *choImage = cell.showImage.image;
+    self.chose(choImage);
 }
 
+- (void)didChoseImage:(ChoseImage)choseImage{
+    self.chose = choseImage;
+}
 
 
 @end

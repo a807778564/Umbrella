@@ -12,16 +12,6 @@
             <rect key="frame" x="0.0" y="0.0" width="255" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bq3-CV-gzK">
-                    <constraints>
-                        <constraint firstAttribute="height" constant="28" id="4Li-sr-51y"/>
-                    </constraints>
-                    <segments>
-                        <segment title="First"/>
-                        <segment title="Second"/>
-                    </segments>
-                    <color key="tintColor" red="0.094117647058823528" green="0.68235294117647061" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
-                </segmentedControl>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ixf-7Y-q2Y">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9rp-4I-weq">
@@ -50,23 +40,45 @@
                         <constraint firstAttribute="height" constant="1" id="XVv-bq-VyJ"/>
                     </constraints>
                 </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pe3-lQ-t8m">
+                    <subviews>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bq3-CV-gzK">
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                            <color key="tintColor" red="0.094117647058823528" green="0.68235294117647061" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="checkCate:" destination="ylI-60-1AR" eventType="valueChanged" id="CHa-nu-LNr"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="bq3-CV-gzK" secondAttribute="trailing" id="QGM-1W-VBH"/>
+                        <constraint firstItem="bq3-CV-gzK" firstAttribute="centerX" secondItem="Pe3-lQ-t8m" secondAttribute="centerX" id="agr-Dq-XrI"/>
+                        <constraint firstAttribute="bottom" secondItem="bq3-CV-gzK" secondAttribute="bottom" id="dlE-aU-FD8"/>
+                        <constraint firstItem="bq3-CV-gzK" firstAttribute="leading" secondItem="Pe3-lQ-t8m" secondAttribute="leading" id="rp2-Yf-o6g"/>
+                        <constraint firstItem="bq3-CV-gzK" firstAttribute="top" secondItem="Pe3-lQ-t8m" secondAttribute="top" constant="1" id="v4b-fZ-8PC"/>
+                        <constraint firstAttribute="height" constant="30" id="z59-RP-jcl"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="bq3-CV-gzK" firstAttribute="leading" secondItem="ylI-60-1AR" secondAttribute="leading" constant="30" id="06l-6J-7nV"/>
                 <constraint firstItem="ce7-of-wwU" firstAttribute="top" secondItem="ixf-7Y-q2Y" secondAttribute="bottom" constant="1" id="0U7-fc-ZgI"/>
-                <constraint firstItem="ixf-7Y-q2Y" firstAttribute="top" secondItem="bq3-CV-gzK" secondAttribute="bottom" constant="8" id="2Xc-Y4-Cx3"/>
                 <constraint firstItem="ixf-7Y-q2Y" firstAttribute="leading" secondItem="ylI-60-1AR" secondAttribute="leading" constant="30" id="5an-Xy-8d9"/>
                 <constraint firstAttribute="trailing" secondItem="ce7-of-wwU" secondAttribute="trailing" constant="16" id="CvR-ea-1oh"/>
                 <constraint firstItem="ce7-of-wwU" firstAttribute="centerX" secondItem="ylI-60-1AR" secondAttribute="centerX" id="DgL-Ua-BaN"/>
+                <constraint firstItem="Pe3-lQ-t8m" firstAttribute="leading" secondItem="ylI-60-1AR" secondAttribute="leading" constant="30" id="FAc-PY-Pmq"/>
                 <constraint firstItem="Wze-6r-9kZ" firstAttribute="top" secondItem="ce7-of-wwU" secondAttribute="bottom" constant="11" id="J7b-69-i82"/>
+                <constraint firstAttribute="trailing" secondItem="Pe3-lQ-t8m" secondAttribute="trailing" constant="30" id="Jac-Xx-GGG"/>
                 <constraint firstAttribute="bottom" secondItem="Wze-6r-9kZ" secondAttribute="bottom" constant="11" id="KB8-U8-f8m"/>
                 <constraint firstItem="Wze-6r-9kZ" firstAttribute="centerX" secondItem="ylI-60-1AR" secondAttribute="centerX" id="MeW-PV-ECK"/>
+                <constraint firstItem="Pe3-lQ-t8m" firstAttribute="centerX" secondItem="ylI-60-1AR" secondAttribute="centerX" id="NFO-EI-1Bt"/>
                 <constraint firstItem="ixf-7Y-q2Y" firstAttribute="centerX" secondItem="ylI-60-1AR" secondAttribute="centerX" id="SOr-7k-9WG"/>
-                <constraint firstItem="bq3-CV-gzK" firstAttribute="top" secondItem="ylI-60-1AR" secondAttribute="top" constant="15" id="Y9L-hU-GgM"/>
                 <constraint firstItem="ce7-of-wwU" firstAttribute="leading" secondItem="ylI-60-1AR" secondAttribute="leading" constant="16" id="aVy-sL-cnH"/>
-                <constraint firstAttribute="trailing" secondItem="bq3-CV-gzK" secondAttribute="trailing" constant="30" id="cv2-ka-SAi"/>
-                <constraint firstItem="bq3-CV-gzK" firstAttribute="centerX" secondItem="ylI-60-1AR" secondAttribute="centerX" id="gNb-Nu-3B7"/>
+                <constraint firstItem="Pe3-lQ-t8m" firstAttribute="top" secondItem="ylI-60-1AR" secondAttribute="top" constant="14" id="f9H-hf-sOK"/>
+                <constraint firstItem="ixf-7Y-q2Y" firstAttribute="top" secondItem="Pe3-lQ-t8m" secondAttribute="bottom" constant="8" id="rEB-9R-3vQ"/>
                 <constraint firstItem="ce7-of-wwU" firstAttribute="top" secondItem="ixf-7Y-q2Y" secondAttribute="bottom" constant="1" id="ttN-HG-Eh5"/>
                 <constraint firstAttribute="trailing" secondItem="ixf-7Y-q2Y" secondAttribute="trailing" constant="30" id="uAf-m4-il0"/>
             </constraints>
@@ -75,7 +87,7 @@
                 <outlet property="cageCheck" destination="bq3-CV-gzK" id="2kz-GM-e9H"/>
                 <outlet property="imageCollectiom" destination="ixf-7Y-q2Y" id="3ZP-7u-0NU"/>
             </connections>
-            <point key="canvasLocation" x="-598" y="-80"/>
+            <point key="canvasLocation" x="-617" y="-101"/>
         </view>
     </objects>
 </document>
