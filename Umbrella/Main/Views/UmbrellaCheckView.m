@@ -33,6 +33,21 @@
 
 - (void)setCheckArray:(NSMutableArray *)checkArray{
     _checkArray = checkArray;
+    [self makeCons];
+}
+
+- (void)makeCons{
+    float corner = (self.frame.size.width - 16*2 - 21*3);
+    for (UIView *sub in self.subviews) {
+        if ([sub isKindOfClass:[UIButton class]]) {
+            UIButton *check = (UIButton *)sub;
+            if ([check.titleLabel.text isEqualToString:@"确定"] || [check.titleLabel.text isEqualToString:@"取消"]) {
+                check.layer.cornerRadius = 4;
+            }else{
+                check.layer.cornerRadius = corner/8;
+            }
+        }
+    }
 }
 
 - (void)setOldCheck:(NSMutableArray *)oldCheck{
