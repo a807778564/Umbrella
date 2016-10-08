@@ -378,6 +378,13 @@
         }else{
             [self.sanmian setCheckImages:self.checkSanNei];
         }
+        for (int i = 1; i<9; i++) {
+            [self.checkSanNei setValue:[UIImage imageNamed:@"default"] forKey:[NSString stringWithFormat:@"%d",i]];
+            [self.checkSanWai setValue:[UIImage imageNamed:@"default"] forKey:[NSString stringWithFormat:@"%d",i]];
+        }
+        [self.sanmian setCheckImages:self.checkSanWai];
+        self.suangNeiImage = [self convertViewToImage:self.sanmian];
+        self.suangWaiImage = [self convertViewToImage:self.sanmian];
         self.suangBtn.backgroundColor = RGBACOLOR(251, 145, 50, 1);
         self.allBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.danBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
