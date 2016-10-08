@@ -8,6 +8,7 @@
 
 #import "LoginController.h"
 #import "RegisterController.h"
+#import "MainController.h"
 
 @interface LoginController ()
 
@@ -43,6 +44,10 @@
     [[HttpManager sharedHttpManager] postWithUrl:@"/shop/member/login" Parames:@{@"mobile":self.userName.text,@"pwd":self.passWord.text} success:^(id successData) {
         if ([successData[@"code"] integerValue]==1) {
             [self.view makeToast:@"登录成功"];
+            [[NSUserDefaults standardUserDefaults] setValue:successData[@"object"][@"mobile"] forKey:@"mobile"];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            MainController *main = [storyboard instantiateViewControllerWithIdentifier:@"MainController"];
+            [self.navigationController pushViewController:main animated:YES];
         }else{
             [self.view makeToast:successData[@"message"]];
         }

@@ -31,7 +31,7 @@
 
 - (void)setCageteId:(NSString *)cageteId{
     self.secmeArray = [[NSMutableArray alloc] init];
-    [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageType?" Parames:@{@"mobile":@"13361857030",@"typeId":cageteId} success:^(id successData) {
+    [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageType?" Parames:@{@"mobile":[[NSUserDefaults standardUserDefaults] valueForKey:@"mobile"],@"typeId":cageteId} success:^(id successData) {
         NSArray *cateArray = successData[@"object"];
         [self.secmeArray addObjectsFromArray:cateArray];
         for (int i = 0; i<self.secmeArray.count; i++) {
@@ -41,13 +41,14 @@
         [self.cageCheck removeSegmentAtIndex:cateArray.count+1 animated:YES];
         [self.cageCheck removeSegmentAtIndex:cateArray.count animated:YES];
         [self.cageCheck setSelectedSegmentIndex:0];
+        [self checkCate:self.cageCheck];
     } errorBlock:^(NSError *error) {
         
     }];
 }
 
 - (IBAction)checkCate:(UISegmentedControl *)sender {
-    [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageList" Parames:@{@"mobile":@"13361857030",@"typeCategoryId":self.secmeArray[sender.selectedSegmentIndex][@"typeCategoryId"]} success:^(id successData) {
+    [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageList" Parames:@{@"mobile":[[NSUserDefaults standardUserDefaults] valueForKey:@"mobile"],@"typeCategoryId":self.secmeArray[sender.selectedSegmentIndex][@"typeCategoryId"]} success:^(id successData) {
         self.imagesArray = successData[@"object"];
         [self.imageCollectiom reloadData];
     } errorBlock:^(NSError *error) {

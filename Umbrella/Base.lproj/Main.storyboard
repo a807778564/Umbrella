@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6jN-ZO-Ojt">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6jN-ZO-Ojt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -128,7 +128,7 @@
         <!--Main Controller-->
         <scene sceneID="ihd-at-O2I">
             <objects>
-                <viewController id="Ple-4D-AMI" customClass="MainController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainController" id="Ple-4D-AMI" customClass="MainController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="flP-7Y-myO"/>
                         <viewControllerLayoutGuide type="bottom" id="hsr-eP-b8Y"/>
@@ -144,7 +144,7 @@
                                     <constraint firstAttribute="width" constant="130" id="PTf-De-2bW"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WU0-w9-rSr">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WU0-w9-rSr">
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.82745098039999998" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2cz-W1-Sdh"/>
@@ -156,8 +156,11 @@
                                 <state key="selected">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="someBtnOnclick:" destination="Ple-4D-AMI" eventType="touchUpInside" id="bJ4-Wg-Jsi"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g75-h1-1uu">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g75-h1-1uu">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="BeD-UG-UKZ"/>
@@ -169,6 +172,9 @@
                                 <state key="selected">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="someBtnOnclick:" destination="Ple-4D-AMI" eventType="touchUpInside" id="uIE-g3-onZ"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8a-eq-d1F" customClass="UmbrellaView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -184,34 +190,46 @@
                                             <constraint firstAttribute="height" constant="4" id="lwS-eZ-puE"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEm-yn-DWw">
-                                        <color key="backgroundColor" red="0.92549019610000005" green="0.82745098039999998" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEm-yn-DWw">
+                                        <color key="backgroundColor" red="0.92146235704421997" green="0.53112524747848511" blue="0.11699973791837692" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="PEm-yn-DWw" secondAttribute="height" multiplier="1:1" id="2Hm-lq-WQY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="单层"/>
+                                        <connections>
+                                            <action selector="someBtnOnclick:" destination="Ple-4D-AMI" eventType="touchUpInside" id="MXP-YM-ULl"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYG-A5-Yq0">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYG-A5-Yq0">
                                         <color key="backgroundColor" red="0.92549019610000005" green="0.82745098039999998" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="yYG-A5-Yq0" secondAttribute="height" multiplier="1:1" id="gAw-sk-es8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="取消"/>
+                                        <connections>
+                                            <action selector="someBtnOnclick:" destination="Ple-4D-AMI" eventType="touchUpInside" id="m0j-Xr-nSn"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awh-Iu-mzg">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awh-Iu-mzg">
                                         <color key="backgroundColor" red="0.92549019607843142" green="0.82745098039215681" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="awh-Iu-mzg" secondAttribute="height" multiplier="1:1" id="NKe-4n-RtJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="双层"/>
+                                        <connections>
+                                            <action selector="someBtnOnclick:" destination="Ple-4D-AMI" eventType="touchUpInside" id="8Xm-Yh-uUy"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hef-9Q-4qf">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hef-9Q-4qf">
                                         <color key="backgroundColor" red="0.92549019607843142" green="0.82745098039215681" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="提交"/>
+                                        <connections>
+                                            <action selector="someBtnOnclick:" destination="Ple-4D-AMI" eventType="touchUpInside" id="Fgo-bV-yet"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="san_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="dbm-mX-C3C"/>
                                 </subviews>
@@ -568,7 +586,7 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="Ple-4D-AMI" kind="relationship" relationship="rootViewController" id="WV4-N7-TbP"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="IIh-Az-S2f"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nU9-MH-NDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

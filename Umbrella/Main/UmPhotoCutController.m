@@ -7,14 +7,14 @@
 //
 
 #import "UmPhotoCutController.h"
+#import "UmCutImageView.h"
 
 #define selfWidth self.view.frame.size.width
+#define selfHeight self.view.frame.size.height
 
 @interface UmPhotoCutController ()
 
-@property (nonatomic, strong) UIImageView *showImageView;
-
-@property (nonatomic, strong) UIView *coutVeiw;
+@property (nonatomic, strong) UmCutImageView *showImageView;
 
 @property (nonatomic, assign) BOOL canMove;
 
@@ -28,7 +28,10 @@
     self.title = @"裁剪图片";
     self.view.backgroundColor = RGBACOLOR(34, 34, 34, 1);
     [self setLeftArrow];
-    self.showImageView = [[UIImageView alloc] initWithImage:self.hostImage];
+    self.showImageView = [[UmCutImageView alloc] init];
+    self.showImageView.userInteractionEnabled = YES;
+    //自适应图片宽高比例
+    self.showImageView.contentMode = UIViewContentModeScaleToFill;
     [self.view addSubview:self.showImageView];
     [self.showImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -39,61 +42,21 @@
             make.height.equalTo(self.showImageView.mas_width);
             self.canMove = YES;
         }else{
-            make.width.offset(selfWidth);
-            make.height.offset(self.hostImage.size.height*selfWidth/self.hostImage.size.width);
-            self.hostImage = [self scaleToSize:CGSizeMake(selfWidth, self.hostImage.size.height*selfWidth/self.hostImage.size.width) image:self.hostImage];
+            if ((self.hostImage.size.height*selfWidth/self.hostImage.size.width) < (selfWidth-120)) {
+                make.width.offset(selfWidth);
+                make.height.offset(selfWidth-120);
+                self.hostImage = [self scaleToSize:CGSizeMake(self.hostImage.size.width*(selfWidth-120)/self.hostImage.size.height, selfWidth-120) image:self.hostImage];
+            }else{
+                make.width.offset(selfWidth);
+                make.height.offset(self.hostImage.size.height*selfWidth/self.hostImage.size.width);
+                self.hostImage = [self scaleToSize:CGSizeMake(selfWidth, self.hostImage.size.height*selfWidth/self.hostImage.size.width) image:self.hostImage];
+            }
+            
         }
     }];
+    [self.showImageView setImage:self.hostImage];
     
-    self.coutVeiw = [[UIView alloc] init];
-    self.coutVeiw.backgroundColor = [UIColor clearColor];
-    self.coutVeiw.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.coutVeiw.layer.borderWidth = 1.0f;
-    [self.view addSubview:self.coutVeiw];
-    [self.coutVeiw mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.centerY.equalTo(self.view);
-        make.trailing.equalTo(self.view.mas_trailing).offset(-60);
-        make.leading.equalTo(self.view.mas_leading).offset(60);
-        make.height.equalTo(self.coutVeiw.mas_width);
-    }];
     
-}
-
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSLog(@"%@", touches);
-    if (self.canMove) {
-        return;
-    }
-    UITouch *touch = [touches anyObject];
-    
-    //当前的point
-    CGPoint currentP = [touch locationInView:self.coutVeiw];
-    
-    //以前的point
-    CGPoint preP = [touch previousLocationInView:self.coutVeiw];
-    
-    //x轴偏移的量
-    CGFloat offsetX = currentP.x - preP.x;
-    
-    //Y轴偏移的量
-    CGFloat offsetY = currentP.y - preP.y;
-    
-    self.coutVeiw.transform = CGAffineTransformTranslate(self.coutVeiw.transform, offsetX, offsetY);
-}
-
-//截取部分图像
--(UIImage*)getSubImage:(CGRect)rect
-{
-    CGImageRef subImageRef = CGImageCreateWithImageInRect(self.hostImage.CGImage, rect);
-    CGRect smallBounds = CGRectMake(0, 0, CGImageGetWidth(subImageRef), CGImageGetHeight(subImageRef));
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextDrawImage(context, smallBounds, subImageRef);
-    UIImage* smallImage = [UIImage imageWithCGImage:subImageRef];
-    UIGraphicsEndImageContext();
-    
-    return smallImage;
 }
 
 //等比例缩放
@@ -142,14 +105,7 @@
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
-    if (!self.canMove) {
-        CGRect cutRect = CGRectMake(self.coutVeiw.frame.origin.x, self.hostImage.size.height/2 - self.coutVeiw.frame.size.height/2, self.coutVeiw.frame.size.width, self.coutVeiw.frame.size.height);
-        UIImage *cutImagess = [self getSubImage:cutRect];
-        self.cut([self scaleToSize:CGSizeMake(self.coutVeiw.frame.size.width, self.coutVeiw.frame.size.height) image:cutImagess]);
-//        self.cut([self getSubImage:self.coutVeiw.frame]);
-    }else{
-        self.cut([self scaleToSize:CGSizeMake(self.coutVeiw.frame.size.width, self.coutVeiw.frame.size.height) image:self.hostImage]);
-    }
+    self.cut([self.showImageView cutImageWhenBack:self.hostImage]);
 }
 
 

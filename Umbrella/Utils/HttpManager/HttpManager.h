@@ -19,4 +19,6 @@ typedef void(^ErrorBlock)(NSError *error);
 
 - (void)getWithUrl:(NSString *)url Parames:(NSDictionary *)params success:(SuccessBlock)success errorBlock:(ErrorBlock)errorBlock;
 
+- (void)postImageWithUrl:(NSString *)url Parames:(NSDictionary *)params innerImage:(UIImage *)innerImage outImage:(UIImage *)outImage orgImages:(NSArray *)orgImages success:(SuccessBlock)success errorBlock:(ErrorBlock)errorBlock;
+
 @end

@@ -34,6 +34,7 @@
 - (void)setCheckArray:(NSMutableArray *)checkArray{
     _checkArray = checkArray;
     [self makeCons];
+    [self setOldCheck:checkArray];
 }
 
 - (void)makeCons{

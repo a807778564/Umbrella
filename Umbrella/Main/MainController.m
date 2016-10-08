@@ -14,33 +14,54 @@
 
 @interface MainController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *neiBtn;
+@property (weak, nonatomic) IBOutlet UIButton *neiBtn;//内按钮
 
-@property (weak, nonatomic) IBOutlet UIButton *waiBtn;
+@property (weak, nonatomic) IBOutlet UIButton *waiBtn;//外按钮
 
-@property (weak, nonatomic) IBOutlet UmbrellaView *sanmian;
+@property (weak, nonatomic) IBOutlet UmbrellaView *sanmian;//伞面
 
-@property (weak, nonatomic) IBOutlet UIButton *danBtn;
+@property (weak, nonatomic) IBOutlet UIButton *danBtn;//单面
 
-@property (weak, nonatomic) IBOutlet UIButton *suangBtn;
+@property (weak, nonatomic) IBOutlet UIButton *suangBtn;//双面
 
-@property (weak, nonatomic) IBOutlet UIButton *allBtn;
+@property (weak, nonatomic) IBOutlet UIButton *allBtn;//取消
 
-@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;//提交
 
-@property (weak, nonatomic) IBOutlet UIView *lienView;
+@property (weak, nonatomic) IBOutlet UIView *lienView;//分割线
 
-@property (nonatomic, strong) UmbrellaCheckView *checkView;
+@property (nonatomic, strong) UmbrellaCheckView *checkView;//伞面选择的按钮
 
 @property (nonatomic, strong) UIView *grayView;//阴影遮盖的View;
 
-@property (nonatomic, strong) UmbrellaImageCheck *imageCkeck;
+@property (nonatomic, strong) UmbrellaImageCheck *imageCkeck;//图片选择的view
 
-@property (nonatomic, strong) NSMutableArray *checkSan;
+@property (nonatomic, strong) NSMutableArray *checkSan;//选择的伞面数组
 
-@property (nonatomic, strong) NSMutableArray *oldCkeck;
+@property (nonatomic, strong) NSArray *showCateArray;//显示的图片分类
 
-@property (nonatomic, strong) NSArray *showCateArray;
+@property (nonatomic, strong) NSMutableDictionary *checkSanMian;//单层伞面的图片集合
+
+@property (nonatomic, strong) NSMutableDictionary *checkSanWai;//外伞面的图片图片集合
+
+@property (nonatomic, strong) NSMutableDictionary *checkSanNei;//内伞面的图片图片集合
+
+@property (nonatomic, assign) MainCheckType checkType;
+
+@property (nonatomic, assign) UmType umType;
+
+@property (nonatomic, strong) UIImage *danImage;//单面的图片
+
+@property (nonatomic, strong) UIImage *suangWaiImage;//双层外图片
+
+@property (nonatomic, strong) UIImage *suangNeiImage;//双层内图片
+
+@property (nonatomic, strong) UIImage *nilImage;//空白的伞面图
+
+@property (nonatomic, strong) NSMutableArray *orgImage;//原图
+
+@property (nonatomic, assign) BOOL isHostPhoto;//是否本地的图库
+
 @end
 
 @implementation MainController
@@ -48,7 +69,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.oldCkeck = [[NSMutableArray alloc] init];
+    [self setLeftArrow];
+    self.checkSanMian = [[NSMutableDictionary alloc] init];
+    self.checkSanWai = [[NSMutableDictionary alloc] init];
+    self.checkSanNei = [[NSMutableDictionary alloc] init];
+    self.orgImage = [[NSMutableArray alloc] init];
+    self.checkType = MainCheckDan;//默认单层
+    self.umType = UmTypeNei;//默认内层
     
     CGFloat cor = (self.view.frame.size.width - 17*2 - 47*3);
     self.danBtn.layer.cornerRadius =cor/8;
@@ -58,8 +85,10 @@
     UITapGestureRecognizer *sanTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickSanMian)];
     [self.sanmian addGestureRecognizer:sanTap];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(grayViewOnClick)];
     self.grayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.grayView.backgroundColor = [UIColor clearColor];
+    [self.grayView addGestureRecognizer:tap];
     [self.view addSubview:self.grayView];
     [self.view sendSubviewToBack:self.grayView];
     
@@ -94,7 +123,34 @@
         make.leading.equalTo(self.view.mas_leading).offset(40);
         make.height.equalTo(self.checkView.mas_width);
     }];
-    
+    [self performSelector:@selector(getNilImageWith) withObject:nil afterDelay:0.1f];
+}
+
+- (void)getNilImageWith{
+    self.nilImage = [self convertViewToImage:self.sanmian];
+//    self.testShow.image = self.nilImage;
+}
+
+- (void)grayViewOnClick{
+    [self.checkSan removeAllObjects];
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.imageCkeck mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view.mas_bottom);
+        }];
+        [self.view layoutIfNeeded];
+    }completion:^(BOOL finished) {
+        [self.view sendSubviewToBack:self.grayView];
+        self.grayView.backgroundColor = [UIColor clearColor];
+    }];
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.checkView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view.mas_bottom);
+        }];
+        [self.view layoutIfNeeded];
+    }completion:^(BOOL finished) {
+        [self.view sendSubviewToBack:self.grayView];
+        self.grayView.backgroundColor = [UIColor clearColor];
+    }];
 }
 
 //选择伞面点击确定
@@ -126,8 +182,8 @@
         }completion:^(BOOL finished) {
             if(isLianXu){
                 [self showImageCheck];
-                [self.oldCkeck addObjectsFromArray:checkNumber];
-                [self.checkSan removeAllObjects];
+//                [self.oldCkeck addObjectsFromArray:checkNumber];
+//                [self.checkSan removeAllObjects];
             }else{
                 [self.checkSan removeAllObjects];
                 [self.view makeToast:@"请选择相邻的伞面!"];
@@ -148,7 +204,7 @@
 //点击伞面
 - (void)clickSanMian{
     self.checkView.checkArray = self.checkSan;
-    self.checkView.oldCheck = self.oldCkeck;
+//    self.checkView.oldCheck = self.oldCkeck;
     [UIView animateWithDuration:0.5 animations:^{
         [self.checkView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.view.mas_bottom).offset(-(self.sanmian.frame.size.height+self.sanmian.frame.origin.y));
@@ -164,7 +220,7 @@
 //显示 花纹选择
 - (void)showImageCheck{
     if (!self.showCateArray) {
-        [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageType?" Parames:@{@"mobile":@"13361857030",@"typeId":@0} success:^(id successData) {
+        [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageType?" Parames:@{@"mobile":[[NSUserDefaults standardUserDefaults] valueForKey:@"mobile"],@"typeId":@0} success:^(id successData) {
             NSArray *cateArray = successData[@"object"];
             self.showCateArray= cateArray;
             [self showAction:cateArray];
@@ -174,18 +230,17 @@
     }else{
         [self showAction:self.showCateArray];
     }
-    
-    
 }
 
 - (void)showAction:(NSArray *)cateArray{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alert addAction:[UIAlertAction actionWithTitle:@"手机图库" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.isHostPhoto = YES;
         [self showHostImage];
     }]];
     for (int i = 0; i<cateArray.count; i++) {
         [alert addAction:[UIAlertAction actionWithTitle:cateArray[i][@"typeName"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"%@",cateArray[i][@"typeName"]);
+            self.isHostPhoto = NO;
             [self showImageCheckView:cateArray[i][@"typeCategoryId"]];
         }]];
     }
@@ -230,6 +285,11 @@
     [self goToCutPhoto:image];
 }
 
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [self.checkSan removeAllObjects];
+}
+
 
 - (void)goToCutPhoto:(UIImage *)image{
     UmPhotoCutController *um = [[UmPhotoCutController alloc] init];
@@ -239,8 +299,38 @@
         
     }];
     [um didCutImageFinish:^(UIImage *cutImage) {
-        [self.sanmian setCheckImage:cutImage];
+        if (self.isHostPhoto) {
+            if (![self.orgImage containsObject:cutImage]) {
+                [self.orgImage addObject:cutImage];
+            }
+        }
+        if (self.checkType == MainCheckDan) {
+            for (NSNumber *check in self.checkSan) {
+                [self.checkSanMian setObject:cutImage forKey:check];
+            }
+            [self.sanmian setCheckImages:self.checkSanMian];
+            
+            self.danImage = [self convertViewToImage:self.sanmian];
+//            self.testShow.image = self.danImage;
+        }else if(self.checkType == MainCheckShuang){
+            if (self.umType == UmTypeWai) {
+                for (NSNumber *check in self.checkSan) {
+                    [self.checkSanWai setObject:cutImage forKey:check];
+                }
+                [self.sanmian setCheckImages:self.checkSanWai];
+                self.suangWaiImage = [self convertViewToImage:self.sanmian];
+//                self.testShow.image = self.suangWaiImage;
+            }else{
+                for (NSNumber *check in self.checkSan) {
+                    [self.checkSanNei setObject:cutImage forKey:check];
+                }
+                [self.sanmian setCheckImages:self.checkSanNei];
+                self.suangNeiImage = [self convertViewToImage:self.sanmian];
+//                self.testShow.image = self.suangNeiImage;
+            }
+        }
         
+        [self.checkSan removeAllObjects];
         self.grayView.backgroundColor = [UIColor clearColor];
         [self.view sendSubviewToBack:self.grayView];
         [UIView animateWithDuration:0.5 animations:^{
@@ -250,6 +340,112 @@
             [self.view layoutIfNeeded];
         }];
     }];
+}
+
+- (IBAction)someBtnOnclick:(UIButton *)sender {
+    if (sender.tag == 1) {
+        if (self.checkType == MainCheckDan && self.checkSanMian.allKeys.count>0) {
+            [self.view makeToast:@"单面只能选择一面!"];
+            return;
+        }
+        [self.sanmian setCheckImages:self.checkSanNei];
+        self.umType = UmTypeNei;
+        self.neiBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.waiBtn.backgroundColor = [UIColor whiteColor];
+        NSLog(@"内");
+    }else if(sender.tag == 2){
+        if (self.checkType == MainCheckDan && self.checkSanMian.allKeys.count>0) {
+            [self.view makeToast:@"单面只能选择一面!"];
+            return;
+        }
+        [self.sanmian setCheckImages:self.checkSanWai];
+        self.umType = UmTypeWai;
+        self.waiBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.neiBtn.backgroundColor = [UIColor whiteColor];
+        NSLog(@"外");
+    }else if(sender.tag == 3){
+        self.checkType =  MainCheckDan;
+        [self.sanmian setCheckImages:self.checkSanMian];
+        self.danBtn.backgroundColor = RGBACOLOR(251, 145, 50, 1);
+        self.allBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.suangBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.submitBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        NSLog(@"单层");
+    }else if(sender.tag == 4){
+        self.checkType =  MainCheckShuang;
+        if (self.umType == UmTypeWai) {
+            [self.sanmian setCheckImages:self.checkSanWai];
+        }else{
+            [self.sanmian setCheckImages:self.checkSanNei];
+        }
+        self.suangBtn.backgroundColor = RGBACOLOR(251, 145, 50, 1);
+        self.allBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.danBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.submitBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        NSLog(@"双层");
+    }else if(sender.tag == 5){
+        if (self.checkType == MainCheckDan) {
+            [self.checkSanMian removeAllObjects];
+            [self.sanmian setCheckImages:self.checkSanMian];
+        }else if(self.checkType == MainCheckShuang){
+            if (self.umType == UmTypeWai) {
+                [self.checkSanWai removeAllObjects];
+                [self.sanmian setCheckImages:self.checkSanWai];
+            }else{
+                [self.checkSanNei removeAllObjects];
+                [self.sanmian setCheckImages:self.checkSanNei];
+            }
+        }
+        self.allBtn.backgroundColor = RGBACOLOR(251, 145, 50, 1);
+        self.danBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.suangBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.submitBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        NSLog(@"取消");
+    }else if(sender.tag == 6){
+        self.submitBtn.backgroundColor = RGBACOLOR(251, 145, 50, 1);
+        self.allBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.suangBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.danBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        if (self.checkType == MainCheckDan) {
+            if (self.umType == UmTypeNei) {
+                [self submitImage:self.danImage outImage:self.nilImage type:1 orgImage:self.orgImage];
+            }else{
+                [self submitImage:self.nilImage outImage:self.danImage type:1 orgImage:self.orgImage];
+            }
+        }else if(self.checkType == MainCheckShuang){
+            [self submitImage:self.suangNeiImage outImage:self.suangWaiImage type:2 orgImage:self.orgImage];
+        }
+        NSLog(@"提交");
+    }
+}
+
+/***
+ * @prama innerImage  内面效果图
+ * @prama outImage    外面效果图
+ * @prama sanType     单双层 1单层  2双层
+ * @prama orgImage    相机原图
+ **/
+- (void)submitImage:(UIImage *)innerImage outImage:(UIImage *)outImage type:(NSInteger)sanType orgImage:(NSMutableArray *)orgImage{
+
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"mobile"] forKey:@"mobile"];
+    [param setValue:@(sanType) forKey:@"layer"];
+    [[HttpManager sharedHttpManager] postImageWithUrl:@"/shop/common/submitOrder" Parames:param innerImage:innerImage outImage:outImage orgImages:orgImage success:^(id successData) {
+        [self.view makeToast:successData[@"message"]];
+    } errorBlock:^(NSError *error) {
+        
+    }];
+}
+
+//uiview 转换成 uiimage
+-(UIImage*)convertViewToImage:(UIView*)v{
+    CGSize s = v.bounds.size;
+    // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了
+    UIGraphicsBeginImageContextWithOptions(s, NO, [UIScreen mainScreen].scale);
+    [v.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 - (void)didReceiveMemoryWarning {

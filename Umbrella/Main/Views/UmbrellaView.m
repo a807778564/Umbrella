@@ -24,8 +24,8 @@
     [self drawTrianglePath];
 }
 
-- (void)setCheckImage:(UIImage *)checkImage{
-    _checkImage = checkImage;
+- (void)setCheckImages:(NSMutableDictionary *)checkImages{
+    _checkImages = checkImages;
     [self setNeedsDisplay];
 }
 
@@ -41,7 +41,7 @@
     //设置线宽
     path1.lineWidth = 1;
     //设置填充颜色 [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.png"]]
-    UIColor *fillColor = _checkImage?[UIColor colorWithPatternImage:_checkImage]:RGBACOLOR(250, 250, 250, 1);
+    UIColor *fillColor = _checkImages[@"8"]?[UIColor colorWithPatternImage:_checkImages[@"8"]]:RGBACOLOR(250, 250, 250, 1);
     [fillColor set];
     [path1 fill];
     //设置画笔颜色
@@ -58,7 +58,7 @@
     //设置线宽
     path2.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor2 = _checkImage?[UIColor colorWithPatternImage:_checkImage]:RGBACOLOR(250, 250, 250, 1);
+    UIColor *fillColor2 = _checkImages[@"7"]?[UIColor colorWithPatternImage:_checkImages[@"7"]]:RGBACOLOR(250, 250, 250, 1);
     [fillColor2 set];
     [path2 fill];
     //设置画笔颜色
@@ -75,7 +75,7 @@
     //设置线宽
     path3.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor3 = _checkImage?[UIColor colorWithPatternImage:_checkImage]:RGBACOLOR(250, 250, 250, 1);
+    UIColor *fillColor3 = _checkImages[@"6"]?[UIColor colorWithPatternImage:_checkImages[@"6"]]:RGBACOLOR(250, 250, 250, 1);
     [fillColor3 set];
     [path3 fill];
     //设置画笔颜色
@@ -92,7 +92,7 @@
     //设置线宽
     path4.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor4 = _checkImage?[UIColor colorWithPatternImage:_checkImage]:RGBACOLOR(250, 250, 250, 1);
+    UIColor *fillColor4 = _checkImages[@"5"]?[UIColor colorWithPatternImage:_checkImages[@"5"]]:RGBACOLOR(250, 250, 250, 1);
     [fillColor4 set];
     [path4 fill];
     //设置画笔颜色
@@ -109,7 +109,7 @@
     //设置线宽
     path5.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor5 = _checkImage?[UIColor colorWithPatternImage:_checkImage]:RGBACOLOR(250, 250, 250, 1);
+    UIColor *fillColor5 = _checkImages[@"4"]?[UIColor colorWithPatternImage:_checkImages[@"4"]]:RGBACOLOR(250, 250, 250, 1);
     [fillColor5 set];
     [path5 fill];
     //设置画笔颜色
@@ -126,7 +126,7 @@
     //设置线宽
     path6.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor6 = _checkImage?[UIColor colorWithPatternImage:_checkImage]:RGBACOLOR(250, 250, 250, 1);
+    UIColor *fillColor6 = _checkImages[@"3"]?[UIColor colorWithPatternImage:_checkImages[@"3"]]:RGBACOLOR(250, 250, 250, 1);
     [fillColor6 set];
     [path6 fill];
     //设置画笔颜色
@@ -143,7 +143,7 @@
     //设置线宽
     path7.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor7 = _checkImage?[UIColor colorWithPatternImage:_checkImage]:RGBACOLOR(250, 250, 250, 1);
+    UIColor *fillColor7 = _checkImages[@"2"]?[UIColor colorWithPatternImage:_checkImages[@"2"]]:RGBACOLOR(250, 250, 250, 1);
     [fillColor7 set];
     [path7 fill];
     //设置画笔颜色
@@ -160,7 +160,7 @@
     //设置线宽
     path8.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor8 = _checkImage?[UIColor colorWithPatternImage:_checkImage]:RGBACOLOR(250, 250, 250, 1);
+    UIColor *fillColor8 = _checkImages[@"1"]?[UIColor colorWithPatternImage:_checkImages[@"1"]]:RGBACOLOR(250, 250, 250, 1);
     [fillColor8 set];
     [path8 fill];
     //设置画笔颜色
