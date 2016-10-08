@@ -231,7 +231,11 @@
                                             <action selector="someBtnOnclick:" destination="Ple-4D-AMI" eventType="touchUpInside" id="Fgo-bV-yet"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="san_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="dbm-mX-C3C"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="san_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="dbm-mX-C3C">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="172" id="uKE-9k-9aS"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>

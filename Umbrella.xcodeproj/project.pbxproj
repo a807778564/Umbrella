@@ -825,6 +825,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.laber.Umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4f00ce70-a1e6-4c15-9ae6-2c02c9f02e5c";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -841,6 +842,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.laber.Umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4f00ce70-a1e6-4c15-9ae6-2c02c9f02e5c";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

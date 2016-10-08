@@ -68,7 +68,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title = @"伞面制作";
     [self setLeftArrow];
     self.checkSanMian = [[NSMutableDictionary alloc] init];
     self.checkSanWai = [[NSMutableDictionary alloc] init];
