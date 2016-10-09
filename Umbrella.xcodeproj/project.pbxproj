@@ -588,8 +588,8 @@
 				TargetAttributes = {
 					2C48C1851D9B62BA00E6BEA0 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = DHR8CPP4EK;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = QFHX5W6J8N;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -743,6 +743,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -791,7 +792,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -816,15 +818,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DEVELOPMENT_TEAM = DHR8CPP4EK;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: gaoqing shan (QFHX5W6J8N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: gaoqing shan (QFHX5W6J8N)";
+				DEVELOPMENT_TEAM = QFHX5W6J8N;
 				GCC_PREFIX_HEADER = "Umbrella/Supporting Files/Umbrella_Header.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Umbrella/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.laber.Umbrella;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgq.umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4f00ce70-a1e6-4c15-9ae6-2c02c9f02e5c";
+				PROVISIONING_PROFILE = "daeeeefd-d82c-4f72-809c-b8db594f5ef0";
+				PROVISIONING_PROFILE_SPECIFIER = umbrellaDistri;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -833,15 +837,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DEVELOPMENT_TEAM = DHR8CPP4EK;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: gaoqing shan (QFHX5W6J8N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: gaoqing shan (QFHX5W6J8N)";
+				DEVELOPMENT_TEAM = QFHX5W6J8N;
 				GCC_PREFIX_HEADER = "Umbrella/Supporting Files/Umbrella_Header.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Umbrella/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.laber.Umbrella;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgq.umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4f00ce70-a1e6-4c15-9ae6-2c02c9f02e5c";
+				PROVISIONING_PROFILE = "daeeeefd-d82c-4f72-809c-b8db594f5ef0";
+				PROVISIONING_PROFILE_SPECIFIER = umbrellaDistri;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
