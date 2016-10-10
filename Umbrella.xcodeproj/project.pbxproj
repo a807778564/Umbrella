@@ -827,7 +827,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sgq.umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "daeeeefd-d82c-4f72-809c-b8db594f5ef0";
+				PROVISIONING_PROFILE = "17217c4f-c376-427e-81aa-f635086de460";
 				PROVISIONING_PROFILE_SPECIFIER = umbrellaDistri;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -846,7 +846,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sgq.umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "daeeeefd-d82c-4f72-809c-b8db594f5ef0";
+				PROVISIONING_PROFILE = "17217c4f-c376-427e-81aa-f635086de460";
 				PROVISIONING_PROFILE_SPECIFIER = umbrellaDistri;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
