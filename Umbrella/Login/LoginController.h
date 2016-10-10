@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface LoginController : UIViewController
+#import "BaseController.h"
+@interface LoginController : BaseController
 
 @end
 

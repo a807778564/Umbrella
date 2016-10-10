@@ -19,4 +19,10 @@
 -(UIImage*)cutWithFrame:(CGRect)frame;
 
 +(UIImage *)imageWithColor:(UIColor *)color;
+
++(UIImage*)scaleToSize:(CGSize)size image:(UIImage *)scaleimage;
+
+- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
+
+-(UIImage *)imageAtRect:(CGRect)rect;
 @end

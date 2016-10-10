@@ -97,6 +97,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     CheckImageCollectionCell *cell = (CheckImageCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
     UIImage *choImage = cell.showImage.image;
+    [self.cageCheck removeAllSegments];
     self.chose(choImage);
 }
 

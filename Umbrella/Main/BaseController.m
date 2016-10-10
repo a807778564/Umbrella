@@ -24,6 +24,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [IQKeyboardManager sharedManager].enable = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [IQKeyboardManager sharedManager].enable = YES;
+}
+
 - (void)setLeftArrow{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithIcon:@"left_arrow" highlightedIcon:@"left_arrow" target:self action:@selector(doLeftAction)];
 }

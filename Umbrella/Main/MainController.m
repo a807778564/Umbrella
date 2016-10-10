@@ -299,6 +299,12 @@
         
     }];
     [um didCutImageFinish:^(UIImage *cutImage) {
+        if (self.checkSan.count <= 3) {
+            cutImage = [cutImage imageAtRect:CGRectMake(0, 0, self.sanmian.frame.size.width/2, self.sanmian.frame.size.height)];
+        }
+        
+        cutImage = [cutImage imageRotatedByDegrees:(-([self.checkSan[0] integerValue]-1)*45)];
+        
         if (self.isHostPhoto) {
             if (![self.orgImage containsObject:cutImage]) {
                 [self.orgImage addObject:cutImage];
@@ -458,6 +464,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
 }
 
 /*

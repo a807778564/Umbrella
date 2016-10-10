@@ -14,9 +14,11 @@
 #import "Masonry.h"
 
 #import "UIButton+simpleinit.h"
+#import "IQKeyboardManager.h"
 #import "UIBarButtonItem+HRS.h"
 #import "UIView+toast.h"
 #import "UIImage+Color.h"
+#import "UIImage+ImageEffects.h"
 #import "UIColor+ColorWithHex.h"
 #import "UILabel+simpleinit.h"
 #import "UILabel+ofen.h"

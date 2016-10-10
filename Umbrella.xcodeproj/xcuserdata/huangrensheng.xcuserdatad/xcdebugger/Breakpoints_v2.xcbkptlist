@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
             endingLineNumber = "146"
-            landmarkName = "-checkSanFinish:checkNumber:"
+            landmarkName = "-grayViewOnClick"
             landmarkType = "7">
             <Locations>
                <Location
@@ -108,7 +108,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
             endingLineNumber = "244"
-            landmarkName = "-goToCutPhoto:"
+            landmarkName = "-showAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -135,11 +135,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Umbrella/Main/UmPhotoCutController.m"
-            timestampString = "496918120.001166"
+            timestampString = "497774835.739645"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149">
+            startingLineNumber = "157"
+            endingLineNumber = "157">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
