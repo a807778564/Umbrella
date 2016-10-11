@@ -300,11 +300,26 @@
     }];
     [um didCutImageFinish:^(UIImage *cutImage) {
         if (self.checkSan.count <= 3) {
-            cutImage = [cutImage imageAtRect:CGRectMake(0, 0, self.sanmian.frame.size.width/2, self.sanmian.frame.size.height)];
-            
+            if (self.checkSan.count == 1) {
+                
+                cutImage = [cutImage imageAtRect:CGRectMake(0, 0, self.sanmian.frame.size.height/2, (int)(self.sanmian.frame.size.height*(45*3.14/180/2)))];
+            }else if(self.checkSan.count == 2){
+                cutImage = [cutImage imageAtRect:CGRectMake(0, 0, self.sanmian.frame.size.width/2, self.sanmian.frame.size.height/2)];
+            }else{
+                cutImage = [cutImage imageAtRect:CGRectMake(0, 0, self.sanmian.frame.size.width/2, self.sanmian.frame.size.height)];
+            }
         }
-        cutImage = [cutImage imageRotatedByDegrees:(-([self.checkSan[0] integerValue]-1)*45) startIndex:self.checkSan];
-        
+        if (self.checkSan.count > 1 && [self.checkSan[0] integerValue] != 1) {
+            cutImage = [cutImage imageRotatedByDegrees:(-([self.checkSan[0] integerValue]-1)*45-180) startIndex:self.checkSan];
+        }else{
+            cutImage = [cutImage imageRotatedByDegrees:(([self.checkSan[0] integerValue]-1)*45) startIndex:self.checkSan];
+        }
+//        UIImageView *imageff = [[UIImageView alloc] initWithImage:cutImage];
+//        [self.view addSubview:imageff];
+//        [imageff mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.bottom.equalTo(self.sanmian.mas_centerY);
+//            make.trailing.equalTo(self.view.mas_centerX);
+//        }];
         if (self.isHostPhoto) {
             if (![self.orgImage containsObject:cutImage]) {
                 [self.orgImage addObject:cutImage];

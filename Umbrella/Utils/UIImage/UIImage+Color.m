@@ -169,7 +169,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     
     CGFloat drawX = -self.size.width / 2;
     CGFloat drawY = -self.size.height / 2;
-    if ([startIndex[0] integerValue] == 2 && startIndex.count<4) {
+    if ([startIndex[0] integerValue] == 2 && startIndex.count<4 && startIndex.count !=1) {
         drawX = -self.size.width;
         drawY = -self.size.height/2.5;
     }else if([startIndex[0] integerValue] == 2 && startIndex.count>3){
@@ -180,6 +180,18 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         drawX = -self.size.width/4;
     }else if([startIndex[0] integerValue] == 6 && startIndex.count<4){
         drawX = -self.size.width;
+    }else if(startIndex.count ==1 && [startIndex[0] integerValue] == 2){
+        drawX = -self.size.width/2;
+        drawY = -self.size.height;
+    }else if(startIndex.count ==1 && [startIndex[0] integerValue] == 1){
+        drawX = -self.size.width/2;
+        drawY = -self.size.height/2;
+    }else if(startIndex.count ==1 && [startIndex[0] integerValue] == 3){
+        drawX = -self.size.width/2;
+        drawY = -self.size.height/2;
+    }else if(startIndex.count ==1 && [startIndex[0] integerValue] == 4){
+        drawX = -self.size.width/2;
+        drawY = -self.size.height/4;
     }
     
     CGContextDrawImage(bitmap, CGRectMake(drawX,drawY, self.size.width, self.size.height), [self CGImage]);
@@ -191,12 +203,23 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 -(UIImage *)imageAtRect:(CGRect)rect
 {
+    // 创建一个bitmap的context
+    // 并把它设置成为当前正在使用的context
+    UIGraphicsBeginImageContext(rect.size);
+    // 绘制改变大小的图片
+    [self drawInRect:CGRectMake(0, 0, rect.size.width, rect.size.height)];
+    // 从当前context中创建一个改变大小后的图片
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 使当前的context出堆栈
+    UIGraphicsEndImageContext();
+    // 返回新的改变大小后的图片
+    return scaledImage;
     
-    CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], rect);
-    UIImage* subImage = [UIImage imageWithCGImage: imageRef];
-    CGImageRelease(imageRef);
-    
-    return subImage;
+//    CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], rect);
+//    UIImage* subImage = [UIImage imageWithCGImage: imageRef];
+//    CGImageRelease(imageRef);
+//    
+//    return subImage;
     
 }
 @end
