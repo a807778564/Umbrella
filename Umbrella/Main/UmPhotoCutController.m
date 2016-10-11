@@ -24,9 +24,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.tintColor = RGBACOLOR(246, 226, 77, 1);
-    self.title = @"裁剪图片";
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:RGBACOLOR(246, 226, 77, 1)] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:18]};
+
+     self.title = @"裁剪图片";
     self.view.backgroundColor = RGBACOLOR(34, 34, 34, 1);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" size:CGSizeMake(36, 18) target:self action:@selector(doRightAction)];
+    
     [self setLeftArrow];
     self.showImageView = [[UmCutImageView alloc] init];
     self.showImageView.userInteractionEnabled = YES;
@@ -105,9 +109,16 @@
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
-    self.cut([self.showImageView cutImageWhenBack:self.hostImage]);
+//    self.cut([self.showImageView cutImageWhenBack:self.hostImage]);
 }
 
+
+- (void)doRightAction{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    self.cut([self.showImageView cutImageWhenBack:self.hostImage]);
+}
 
 - (void)didCutImageFinish:(CutImageFinish)finish{
     self.cut = finish;

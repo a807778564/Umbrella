@@ -22,7 +22,7 @@
 
 +(UIImage*)scaleToSize:(CGSize)size image:(UIImage *)scaleimage;
 
-- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
+- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees startIndex:(NSMutableArray *)startIndex;
 
 -(UIImage *)imageAtRect:(CGRect)rect;
 @end

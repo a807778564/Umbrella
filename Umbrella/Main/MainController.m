@@ -223,7 +223,7 @@
         [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageType?" Parames:@{@"mobile":[[NSUserDefaults standardUserDefaults] valueForKey:@"mobile"],@"typeId":@0} success:^(id successData) {
             NSArray *cateArray = successData[@"object"];
             self.showCateArray= cateArray;
-            [self showAction:cateArray];
+            [self showAction:self.showCateArray];
         } errorBlock:^(NSError *error) {
             
         }];
@@ -301,9 +301,9 @@
     [um didCutImageFinish:^(UIImage *cutImage) {
         if (self.checkSan.count <= 3) {
             cutImage = [cutImage imageAtRect:CGRectMake(0, 0, self.sanmian.frame.size.width/2, self.sanmian.frame.size.height)];
+            
         }
-        
-        cutImage = [cutImage imageRotatedByDegrees:(-([self.checkSan[0] integerValue]-1)*45)];
+        cutImage = [cutImage imageRotatedByDegrees:(-([self.checkSan[0] integerValue]-1)*45) startIndex:self.checkSan];
         
         if (self.isHostPhoto) {
             if (![self.orgImage containsObject:cutImage]) {
