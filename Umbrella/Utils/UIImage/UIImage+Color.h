@@ -24,7 +24,7 @@
 
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees startIndex:(NSMutableArray *)startIndex;
 
-- (UIImage *)imageRotatedByRadians:(CGFloat)radians;
+-(UIImage *)rotateImage:(UIImage *)image onDegrees:(float)degrees;
 
 -(UIImage *)imageAtRect:(CGRect)rect;
 @end

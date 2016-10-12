@@ -321,11 +321,11 @@
         }
         
         
-        if (self.checkSan.count > 1 && [self.checkSan[0] integerValue] != 1) {
-            cutImage = [cutImage imageRotatedByDegrees:(-([self.checkSan[0] integerValue]-1)*45-180) startIndex:self.checkSan];
-        }else{
-            cutImage = [cutImage imageRotatedByDegrees:((360-([self.checkSan[0] integerValue]-1)*45-180)) startIndex:self.checkSan];
-        }   
+//        if (self.checkSan.count > 1 && [self.checkSan[0] integerValue] != 1) {
+        cutImage = [cutImage imageRotatedByDegrees:(360-([self.checkSan[0] integerValue]-1)*45-180) startIndex:self.checkSan];
+//        }else{
+//            cutImage = [cutImage imageRotatedByDegrees:((360-([self.checkSan[0] integerValue]-1)*45-180)) startIndex:self.ch];
+//        }   
         
 //        CGAffineTransform transform = CGAffineTransformMakeRotation(45*M_PI/180);
 //        CIImage* coreImage = cutImage.CIImage;
