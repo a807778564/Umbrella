@@ -143,9 +143,11 @@
     //设置线宽
     path7.lineWidth = 1;
     //设置填充颜色
-    UIColor *fillColor7 = _checkImages[@"2"]?[UIColor colorWithPatternImage:_checkImages[@"2"]]:RGBACOLOR(250, 250, 250, 1);
-    [fillColor7 set];
-    [path7 fill];
+//    UIColor *fillColor7 = _checkImages[@"2"]?[UIColor colorWithPatternImage:_checkImages[@"2"]]:RGBACOLOR(250, 250, 250, 1);
+//    [fillColor7 set];
+//    [path7 fill];
+    UIImage *ima7 = _checkImages[@"2"];
+    [ima7 drawAtPoint:CGPointMake(0, 0)];
     //设置画笔颜色
     UIColor *strokeColor7 = [UIColor grayColor];
     [strokeColor7 set];
@@ -162,6 +164,11 @@
     //设置填充颜色
     UIColor *fillColor8 = _checkImages[@"1"]?[UIColor colorWithPatternImage:_checkImages[@"1"]]:RGBACOLOR(250, 250, 250, 1);
     [fillColor8 set];
+    [path8 fill];
+    UIImage *ima8 = _checkImages[@"1"];
+    if (_checkImages.count == 1) {
+        [ima8 drawAtPoint:CGPointMake(33, 0)];
+    }
     [path8 fill];
     //设置画笔颜色
     UIColor *strokeColor8 = [UIColor grayColor];
