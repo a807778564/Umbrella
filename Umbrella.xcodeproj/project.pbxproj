@@ -13,6 +13,7 @@
 		1C836EEA1D9C057F00DD838C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C836EE51D9C057F00DD838C /* Info.plist */; };
 		1C836EEB1D9C057F00DD838C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C836EE61D9C057F00DD838C /* main.m */; };
 		2C0F58BA1D9E383B0067683F /* UmPhotoCutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F58B91D9E383B0067683F /* UmPhotoCutController.m */; };
+		2C37BEE21DAE3E5C007FB4DD /* UmTransImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C37BEE11DAE3E5C007FB4DD /* UmTransImageView.m */; };
 		2C48C1941D9B62BA00E6BEA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C48C1921D9B62BA00E6BEA0 /* Main.storyboard */; };
 		2C48C1961D9B62BA00E6BEA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C48C1951D9B62BA00E6BEA0 /* Assets.xcassets */; };
 		2C48C1991D9B62BA00E6BEA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C48C1971D9B62BA00E6BEA0 /* LaunchScreen.storyboard */; };
@@ -106,6 +107,8 @@
 		1C836EE81D9C057F00DD838C /* Umbrella_Header.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Umbrella_Header.pch; sourceTree = "<group>"; };
 		2C0F58B81D9E383B0067683F /* UmPhotoCutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmPhotoCutController.h; sourceTree = "<group>"; };
 		2C0F58B91D9E383B0067683F /* UmPhotoCutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmPhotoCutController.m; sourceTree = "<group>"; };
+		2C37BEE01DAE3E5C007FB4DD /* UmTransImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmTransImageView.h; sourceTree = "<group>"; };
+		2C37BEE11DAE3E5C007FB4DD /* UmTransImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmTransImageView.m; sourceTree = "<group>"; };
 		2C48C1861D9B62BA00E6BEA0 /* Umbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Umbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C48C1931D9B62BA00E6BEA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C48C1951D9B62BA00E6BEA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,6 +300,8 @@
 				2C76359D1D9E0D4C0008ED91 /* CheckImageCollectionCell.m */,
 				1C17AC531DA7ECA500A50117 /* UmCutImageView.h */,
 				1C17AC541DA7ECA500A50117 /* UmCutImageView.m */,
+				2C37BEE01DAE3E5C007FB4DD /* UmTransImageView.h */,
+				2C37BEE11DAE3E5C007FB4DD /* UmTransImageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -805,6 +810,7 @@
 				2C48C2081D9B8ADC00E6BEA0 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				2C48C2011D9B8ADC00E6BEA0 /* AFURLConnectionOperation.m in Sources */,
 				2C48C2001D9B8ADC00E6BEA0 /* AFSecurityPolicy.m in Sources */,
+				2C37BEE21DAE3E5C007FB4DD /* UmTransImageView.m in Sources */,
 				2C7635C11D9E118C0008ED91 /* SDWebImageDownloader.m in Sources */,
 				2C5522CF1DAB6F1A0054C39A /* IQBarButtonItem.m in Sources */,
 				2C61B2A71D9D0CA300EDA5CB /* UmbrellaImageCheck.m in Sources */,

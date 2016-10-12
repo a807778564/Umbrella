@@ -11,6 +11,7 @@
 #import "UmbrellaCheckView.h"
 #import "UmbrellaImageCheck.h"
 #import "UmPhotoCutController.h"
+#import "UmTransImageView.h"
 
 @interface MainController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -62,6 +63,8 @@
 
 @property (nonatomic, assign) BOOL isHostPhoto;//是否本地的图库
 
+@property (nonatomic, strong) UIImageView *imageff;
+
 @end
 
 @implementation MainController
@@ -76,6 +79,14 @@
     self.orgImage = [[NSMutableArray alloc] init];
     self.checkType = MainCheckDan;//默认单层
     self.umType = UmTypeNei;//默认内层
+    
+    self.imageff = [[UIImageView alloc] init];
+    self.imageff.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.imageff];
+    [self.imageff mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom);
+        make.centerX.equalTo(self.view.mas_centerX);
+    }];
     
     CGFloat cor = (self.view.frame.size.width - 17*2 - 47*3);
     self.danBtn.layer.cornerRadius =cor/8;
@@ -301,25 +312,43 @@
     [um didCutImageFinish:^(UIImage *cutImage) {
         if (self.checkSan.count <= 3) {
             if (self.checkSan.count == 1) {
-                
-                cutImage = [cutImage imageAtRect:CGRectMake(0, 0, self.sanmian.frame.size.height/2, (int)(self.sanmian.frame.size.height*(45*3.14/180/2)))];
+                cutImage = [cutImage imageAtRect:CGRectMake(0, 0,(int)(self.sanmian.frame.size.height*(45*3.14/180/2)),self.sanmian.frame.size.height/2)];
             }else if(self.checkSan.count == 2){
                 cutImage = [cutImage imageAtRect:CGRectMake(0, 0, self.sanmian.frame.size.width/2, self.sanmian.frame.size.height/2)];
             }else{
                 cutImage = [cutImage imageAtRect:CGRectMake(0, 0, self.sanmian.frame.size.width/2, self.sanmian.frame.size.height)];
             }
         }
+        
+        
         if (self.checkSan.count > 1 && [self.checkSan[0] integerValue] != 1) {
             cutImage = [cutImage imageRotatedByDegrees:(-([self.checkSan[0] integerValue]-1)*45-180) startIndex:self.checkSan];
         }else{
-            cutImage = [cutImage imageRotatedByDegrees:(([self.checkSan[0] integerValue]-1)*45) startIndex:self.checkSan];
-        }
-//        UIImageView *imageff = [[UIImageView alloc] initWithImage:cutImage];
-//        [self.view addSubview:imageff];
-//        [imageff mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.equalTo(self.sanmian.mas_centerY);
-//            make.trailing.equalTo(self.view.mas_centerX);
+            cutImage = [cutImage imageRotatedByDegrees:((360-([self.checkSan[0] integerValue]-1)*45-180)) startIndex:self.checkSan];
+        }   
+        
+//        CGAffineTransform transform = CGAffineTransformMakeRotation(45*M_PI/180);
+//        CIImage* coreImage = cutImage.CIImage;
+//        
+//        if (!coreImage) {
+//            coreImage = [CIImage imageWithCGImage:cutImage.CGImage];
+//        }
+        
+//        coreImage = [coreImage imageByApplyingTransform:transform];
+//        cutImage = [UIImage imageWithCIImage:coreImage];
+
+        self.imageff.image= cutImage;
+//        self.imageff.transform = CGAffineTransformMakeRotation((360-([self.checkSan[0] integerValue]-1)*45-180)*M_PI/180);
+//        UIImage *xinImage = [self convertViewToImage:self.imageff];
+        
+        
+//        UIImageView *show = [[UIImageView alloc] initWithImage:xinImage];
+//        [self.view addSubview:show];
+//        [show mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(self.view.mas_top).offset(64);
+//            make.leading.equalTo(self.view.mas_leading);
 //        }];
+        
         if (self.isHostPhoto) {
             if (![self.orgImage containsObject:cutImage]) {
                 [self.orgImage addObject:cutImage];

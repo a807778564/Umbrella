@@ -182,7 +182,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         drawX = -self.size.width;
     }else if(startIndex.count ==1 && [startIndex[0] integerValue] == 2){
         drawX = -self.size.width/2;
-        drawY = -self.size.height;
+        drawY = -self.size.height/2;
     }else if(startIndex.count ==1 && [startIndex[0] integerValue] == 1){
         drawX = -self.size.width/2;
         drawY = -self.size.height/2;
