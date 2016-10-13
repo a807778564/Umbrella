@@ -63,7 +63,7 @@
 
 @property (nonatomic, assign) BOOL isHostPhoto;//是否本地的图库
 
-@property (nonatomic, strong) UIImageView *imageff;
+@property (nonatomic, strong) UmTransImageView *imageff;
 
 @end
 
@@ -80,12 +80,15 @@
     self.checkType = MainCheckDan;//默认单层
     self.umType = UmTypeNei;//默认内层
     
-    self.imageff = [[UIImageView alloc] init];
+    self.imageff = [[UmTransImageView alloc] init];
+    self.imageff.backgroundColor = RGBACOLOR(235, 235, 235, 1);
     self.imageff.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.imageff];
     [self.imageff mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view.mas_bottom);
         make.centerX.equalTo(self.view.mas_centerX);
+        make.width.equalTo(self.sanmian.mas_width).multipliedBy(0.5);
+        make.height.equalTo(self.sanmian.mas_height).multipliedBy(0.5);
     }];
     
     CGFloat cor = (self.view.frame.size.width - 17*2 - 47*3);
@@ -336,10 +339,11 @@
         
 //        coreImage = [coreImage imageByApplyingTransform:transform];
 //        cutImage = [UIImage imageWithCIImage:coreImage];
-
+        self.imageff.sanMianCount = self.checkSan.count;
+        self.imageff.startSan = [self.checkSan[0] integerValue];
         self.imageff.image= cutImage;
 //        self.imageff.transform = CGAffineTransformMakeRotation((360-([self.checkSan[0] integerValue]-1)*45-180)*M_PI/180);
-//        UIImage *xinImage = [self convertViewToImage:self.imageff];
+        cutImage = [self convertViewToImage:self.imageff];
         
         
 //        UIImageView *show = [[UIImageView alloc] initWithImage:xinImage];

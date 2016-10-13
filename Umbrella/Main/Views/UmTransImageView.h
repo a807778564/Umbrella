@@ -12,4 +12,8 @@
 
 @property (nonatomic, strong) UIImage *image;
 
+@property (nonatomic, assign) NSInteger startSan;
+
+@property (nonatomic, assign) NSInteger sanMianCount;
+
 @end

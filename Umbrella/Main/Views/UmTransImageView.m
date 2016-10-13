@@ -8,6 +8,9 @@
 
 #import "UmTransImageView.h"
 
+#define selfWidh self.frame.size.width
+#define selfHeight self.frame.size.height
+
 @implementation UmTransImageView
 
 - (instancetype)init{
@@ -24,7 +27,15 @@
 
 - (void)drawRect:(CGRect)rect{
     UIImage *image = _image;
-    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];//在坐标中画出图片
+    
+    if (self.startSan==1 && self.sanMianCount ==1) {
+        [image drawInRect:CGRectMake(selfWidh-_image.size.width, 0, selfWidh, selfHeight)];//在坐标中画出图片
+    }else if(self.startSan==2 && self.sanMianCount ==1){
+        [image drawInRect:CGRectMake(0, fabs(selfWidh-_image.size.width), selfWidh, selfHeight)];//在坐标中画出图片
+    }
+    
+    
+    
 }
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -180,18 +180,6 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         drawX = -self.size.width/4;
     }else if([startIndex[0] integerValue] == 6 && startIndex.count<4){
         drawX = -self.size.width;
-    }else if(startIndex.count ==1 && [startIndex[0] integerValue] == 2){
-        drawX = -self.size.width/2;
-        drawY = -self.size.height/2;
-    }else if(startIndex.count ==1 && [startIndex[0] integerValue] == 1){
-        drawX = -self.size.width/2;
-        drawY = -self.size.height/2;
-    }else if(startIndex.count ==1 && [startIndex[0] integerValue] == 3){
-        drawX = -self.size.width/2;
-        drawY = -self.size.height/2;
-    }else if(startIndex.count ==1 && [startIndex[0] integerValue] == 4){
-        drawX = -self.size.width/2;
-        drawY = -self.size.height/4;
     }
     
     CGContextDrawImage(bitmap, CGRectMake(drawX,drawY, self.size.width, self.size.height), [self CGImage]);
