@@ -85,7 +85,7 @@
     self.imageff.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.imageff];
     [self.imageff mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view.mas_bottom);
+        make.top.equalTo(self.view.mas_bottom);
         make.centerX.equalTo(self.view.mas_centerX);
         make.width.equalTo(self.sanmian.mas_width).multipliedBy(0.5);
         make.height.equalTo(self.sanmian.mas_height).multipliedBy(0.5);
@@ -117,7 +117,6 @@
             make.trailing.equalTo(self.view.mas_trailing).offset(-60);
             make.leading.equalTo(self.view.mas_leading).offset(60);
         }
-        
         make.height.equalTo(self.checkView.mas_width);
     }];
     [self.checkView didCheckNumberFinish:^(NSString *title, NSMutableArray *checkNumber) {
@@ -196,13 +195,32 @@
         }completion:^(BOOL finished) {
             if(isLianXu){
                 [self showImageCheck];
-//                [self.oldCkeck addObjectsFromArray:checkNumber];
-//                [self.checkSan removeAllObjects];
             }else{
                 [self.checkSan removeAllObjects];
                 [self.view makeToast:@"请选择相邻的伞面!"];
             }
         }];
+        if (checkNumber.count == 3) {
+            [self.imageff mas_remakeConstraints:^(MASConstraintMaker *make) {
+                
+            }];
+            [self.imageff mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view.mas_bottom);
+                make.centerX.equalTo(self.view.mas_centerX);
+                make.width.equalTo(self.sanmian.mas_width);
+                make.height.equalTo(self.sanmian.mas_height);
+            }];
+        }else{
+            [self.imageff mas_remakeConstraints:^(MASConstraintMaker *make) {
+                
+            }];
+            [self.imageff mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view.mas_bottom);
+                make.centerX.equalTo(self.view.mas_centerX);
+                make.width.equalTo(self.sanmian.mas_width).multipliedBy(0.5);
+                make.height.equalTo(self.sanmian.mas_height).multipliedBy(0.5);
+            }];
+        }
     }else{
         self.grayView.backgroundColor = [UIColor clearColor];
         [self.view sendSubviewToBack:self.grayView];
@@ -322,51 +340,48 @@
                 cutImage = [cutImage imageAtRect:CGRectMake(0, 0, self.sanmian.frame.size.width/2, self.sanmian.frame.size.height)];
             }
         }
+
+        bool isCut = YES;
+        if (self.checkSan.count > 3) {
+            isCut = NO;
+        }
         
+        float angle = (360-([self.checkSan[0] integerValue]-1)*45-180);
+        if (self.checkSan.count > 2 && [self.checkSan[0] integerValue]==1) {
+            angle = 0;
+        }
         
-//        if (self.checkSan.count > 1 && [self.checkSan[0] integerValue] != 1) {
-//        cutImage = [cutImage imageRotatedByDegrees:(360-([self.checkSan[0] integerValue]-1)*45-180) startIndex:self.checkSan];
-        cutImage = [cutImage rotateImageWithAngle:cutImage Angle:(360-([self.checkSan[0] integerValue]-1)*45-180) IsExpand:YES];
-//        }else{
-//            cutImage = [cutImage imageRotatedByDegrees:((360-([self.checkSan[0] integerValue]-1)*45-180)) startIndex:self.ch];
-//        }   
+        cutImage = [cutImage rotateImageWithAngle:cutImage Angle:angle IsExpand:isCut checkCount:self.checkSan.count checkone:[self.checkSan[0]  integerValue]];
         
-//        CGAffineTransform transform = CGAffineTransformMakeRotation(45*M_PI/180);
-//        CIImage* coreImage = cutImage.CIImage;
-//        
-//        if (!coreImage) {
-//            coreImage = [CIImage imageWithCGImage:cutImage.CGImage];
-//        }
-        
-//        coreImage = [coreImage imageByApplyingTransform:transform];
-//        cutImage = [UIImage imageWithCIImage:coreImage];
-        self.imageff.sanMianCount = self.checkSan.count;
-        self.imageff.startSan = [self.checkSan[0] integerValue];
-        self.imageff.image= cutImage;
-//        self.imageff.transform = CGAffineTransformMakeRotation((360-([self.checkSan[0] integerValue]-1)*45-180)*M_PI/180);
-        cutImage = [self convertViewToImage:self.imageff];
-        
-        
-//        UIImageView *show = [[UIImageView alloc] initWithImage:xinImage];
-//        [self.view addSubview:show];
-//        [show mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.view.mas_top).offset(64);
-//            make.leading.equalTo(self.view.mas_leading);
-//        }];
-        
+        bool isUserTanView = false;
+        if (self.checkSan.count < 4) {
+            if (self.checkSan.count==2 || self.checkSan.count == 3) {
+                if ([self.checkSan[0] integerValue]==2 || [self.checkSan[0] integerValue]==4 || [self.checkSan[0] integerValue]==6) {
+                    isUserTanView = YES;
+                }
+            }
+            if (self.checkSan.count == 1) {
+                isUserTanView = YES;
+            }
+        }
+
         if (self.isHostPhoto) {
             if (![self.orgImage containsObject:cutImage]) {
                 [self.orgImage addObject:cutImage];
             }
         }
         if (self.checkType == MainCheckDan) {
+            UIImage *newImage = cutImage;
             for (NSNumber *check in self.checkSan) {
-                [self.checkSanMian setObject:cutImage forKey:check];
+                if (isUserTanView) {
+                    newImage = [self roteAndScall:cutImage checkSanCount:self.checkSan.count number:[check integerValue]];
+                }
+                [self.checkSanMian setObject:newImage forKey:check];
             }
             [self.sanmian setCheckImages:self.checkSanMian];
             
             self.danImage = [self convertViewToImage:self.sanmian];
-//            self.testShow.image = self.danImage;
+
         }else if(self.checkType == MainCheckShuang){
             if (self.umType == UmTypeWai) {
                 for (NSNumber *check in self.checkSan) {
@@ -374,14 +389,14 @@
                 }
                 [self.sanmian setCheckImages:self.checkSanWai];
                 self.suangWaiImage = [self convertViewToImage:self.sanmian];
-//                self.testShow.image = self.suangWaiImage;
+
             }else{
                 for (NSNumber *check in self.checkSan) {
                     [self.checkSanNei setObject:cutImage forKey:check];
                 }
                 [self.sanmian setCheckImages:self.checkSanNei];
                 self.suangNeiImage = [self convertViewToImage:self.sanmian];
-//                self.testShow.image = self.suangNeiImage;
+
             }
         }
         
@@ -395,6 +410,24 @@
             [self.view layoutIfNeeded];
         }];
     }];
+}
+
+- (UIImage *)roteAndScall:(UIImage *)image checkSanCount:(NSInteger)count number:(NSInteger)number{
+    if (self.checkSan.count == 1) {
+        self.imageff.sanMianCount = self.checkSan.count;
+        self.imageff.startSan = [self.checkSan[0] integerValue];
+        self.imageff.image= image;
+        image = [self convertViewToImage:self.imageff];
+    }else if(self.checkSan.count==2 || self.checkSan.count==3){
+        if (self.checkSan.count == 3) {
+            self.imageff.treeStartInde = [self.checkSan[0] integerValue];
+        }
+        self.imageff.sanMianCount = self.checkSan.count;
+        self.imageff.startSan = number;
+        self.imageff.image= image;
+        image = [self convertViewToImage:self.imageff];
+    }
+    return image;
 }
 
 - (IBAction)someBtnOnclick:(UIButton *)sender {

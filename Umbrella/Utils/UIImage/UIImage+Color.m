@@ -174,17 +174,9 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     
     CGFloat drawX = -self.size.width / 2;
     CGFloat drawY = -self.size.height / 2;
-    if ([startIndex[0] integerValue] == 2 && startIndex.count<4 && startIndex.count !=1) {
-        drawX = -self.size.width;
-        drawY = -self.size.height/2.5;
-    }else if([startIndex[0] integerValue] == 2 && startIndex.count>3){
-        drawY = - self.size.height/5;
-    }else if([startIndex[0] integerValue] == 4 && startIndex.count<4){
-        drawX = -self.size.width/1.1;
-    }else if([startIndex[0] integerValue] == 4 && startIndex.count>3){
-        drawX = -self.size.width/4;
-    }else if([startIndex[0] integerValue] == 6 && startIndex.count<4){
-        drawX = -self.size.width;
+    if ([startIndex[0] integerValue] == 2 && startIndex.count==3) {
+        drawX = -self.size.width/10;
+        drawY = -self.size.height/2;
     }
     
     CGContextDrawImage(bitmap, CGRectMake(drawX,drawY, self.size.width, self.size.height), [self CGImage]);
@@ -200,10 +192,12 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
  vAngle：旋转角度
  vIsExpand：是否扩展，如果不扩展，那么图像大小不变，但被截掉一部分
  */
-- (UIImage*)rotateImageWithAngle:(UIImage*)vImg Angle:(CGFloat)vAngle IsExpand:(BOOL)vIsExpand
+- (UIImage*)rotateImageWithAngle:(UIImage*)vImg Angle:(CGFloat)vAngle IsExpand:(BOOL)vIsExpand checkCount:(NSInteger)checkCount checkone:(NSInteger)checkOne
 {
-    CGSize imgSize = CGSizeMake(vImg.size.width * vImg.scale, vImg.size.height * vImg.scale);
     
+   
+    
+    CGSize imgSize = CGSizeMake(vImg.size.width * vImg.scale, vImg.size.height * vImg.scale);
     CGSize outputSize = imgSize;
     if (vIsExpand) {
         CGRect rect = CGRectMake(0, 0, imgSize.width, imgSize.height);
@@ -212,7 +206,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         //NSLog(@"rotateImageWithAngle, size0:%f, size1:%f", imgSize.width, rect.size.width);
         outputSize = CGSizeMake(CGRectGetWidth(rect), CGRectGetHeight(rect));
     }
-    
+
     UIGraphicsBeginImageContext(outputSize);
     CGContextRef context = UIGraphicsGetCurrentContext();
     

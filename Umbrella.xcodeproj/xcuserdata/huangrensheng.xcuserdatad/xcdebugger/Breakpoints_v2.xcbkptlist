@@ -9,99 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Umbrella/Main/MainController.m"
-            timestampString = "498014102.868302"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "-grayViewOnClick"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[MainController clickSanMian]"
-                  moduleName = "Umbrella"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangrensheng/Documents/GIT/Umbrella/Umbrella/Main/MainController.m"
-                  timestampString = "496894158.386415"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "272">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__30-[MainController clickSanMian]_block_invoke"
-                  moduleName = "Umbrella"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangrensheng/Documents/GIT/Umbrella/Umbrella/Main/MainController.m"
-                  timestampString = "496894158.38764"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "258">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.151"
-                  moduleName = "Umbrella"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangrensheng/Documents/GIT/Umbrella/Umbrella/Main/MainController.m"
-                  timestampString = "496894158.388788"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "51">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.152"
-                  moduleName = "Umbrella"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangrensheng/Documents/GIT/Umbrella/Umbrella/Main/MainController.m"
-                  timestampString = "496894158.390069"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "29">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__30-[MainController clickSanMian]_block_invoke.154"
-                  moduleName = "Umbrella"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangrensheng/Documents/GIT/Umbrella/Umbrella/Main/MainController.m"
-                  timestampString = "496894158.391354"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "15">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Umbrella/Main/UmPhotoCutController.m"
             timestampString = "497848031.696771"
             startingColumnNumber = "9223372036854775807"
@@ -143,12 +50,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Umbrella/Main/MainController.m"
-            timestampString = "498014615.228721"
+            timestampString = "498037975.33753"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
-            landmarkName = "-goToCutPhoto:"
+            startingLineNumber = "535"
+            endingLineNumber = "535"
+            landmarkName = " )convertViewToImage"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -158,45 +65,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Umbrella/Main/MainController.m"
-            timestampString = "498014615.228721"
+            filePath = "Umbrella/Utils/UIImage/UIImage+Color.m"
+            timestampString = "498034529.790442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "505"
-            endingLineNumber = "505"
-            landmarkName = "-convertViewToImage:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Umbrella/Main/MainController.m"
-            timestampString = "498014615.228721"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
-            landmarkName = "-goToCutPhoto:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Umbrella/Main/Views/UmTransImageView.m"
-            timestampString = "498015304.533315"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-setImage:"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "-rotateImageWithAngle:Angle:IsExpand:checkCount:checkone:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

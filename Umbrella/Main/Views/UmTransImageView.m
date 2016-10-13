@@ -11,6 +11,8 @@
 #define selfWidh self.frame.size.width
 #define selfHeight self.frame.size.height
 
+#define COS(raot) cos(raot*M_PI/180)
+
 @implementation UmTransImageView
 
 - (instancetype)init{
@@ -27,11 +29,47 @@
 
 - (void)drawRect:(CGRect)rect{
     UIImage *image = _image;
-    
+    NSLog(@"cos%.2f",cos(45*M_PI/180));
     if (self.startSan==1 && self.sanMianCount ==1) {
-        [image drawInRect:CGRectMake(selfWidh-_image.size.width, 0, selfWidh, selfHeight)];//在坐标中画出图片
+        [image drawInRect:CGRectMake(selfWidh-_image.size.width, 0, image.size.width, image.size.height)];//在坐标中画出图片
     }else if(self.startSan==2 && self.sanMianCount ==1){
-        [image drawInRect:CGRectMake(0, fabs(selfWidh-_image.size.width), selfWidh, selfHeight)];//在坐标中画出图片
+        [image drawInRect:CGRectMake(-fabs(selfWidh-_image.size.width), fabs(selfWidh-_image.size.width), image.size.height, image.size.width)];//在坐标中画出图片
+    }else if(self.startSan==3 && self.sanMianCount ==1){
+        [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];//在坐标中画出图片
+    }else if(self.startSan==4 && self.sanMianCount ==1){
+        [image drawInRect:CGRectMake(fabs(selfWidh-_image.size.width), 0, image.size.width, image.size.height)];//在坐标中画出图片
+    }else if(self.startSan==5 && self.sanMianCount ==1){
+        [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];//在坐标中画出图片
+    }else if(self.startSan==6 && self.sanMianCount ==1){
+        [image drawInRect:CGRectMake(0, -fabs(selfWidh-_image.size.width)*2, image.size.height, image.size.width)];//在坐标中画出图片
+    }else if(self.startSan==7 && self.sanMianCount ==1){
+        [image drawInRect:CGRectMake(0, fabs(selfWidh-_image.size.height), image.size.width, image.size.height)];//在坐标中画出图片
+    }else if(self.startSan==8 && self.sanMianCount ==1){
+        [image drawInRect:CGRectMake(-fabs(selfWidh-_image.size.width)*2, -fabs(selfWidh-_image.size.width), image.size.height, image.size.width)];//在坐标中画出图片
+    }else if(self.sanMianCount ==2){
+        if (self.startSan ==2) {
+            [image drawInRect:CGRectMake((selfHeight-(selfHeight*cos(45*M_PI/180))*2), selfHeight-(selfHeight*cos(45*M_PI/180)), image.size.width, image.size.height)];//在坐标中画出图片
+        }else if(self.startSan == 3){
+            [image drawInRect:CGRectMake((selfHeight-(selfHeight*cos(45*M_PI/180))*2), -fabs(selfHeight*cos(45*M_PI/180)), image.size.width, image.size.height)];//在坐标中画出图片
+        }else if(self.startSan == 4){
+            [image drawInRect:CGRectMake(fabs(selfHeight-(selfHeight*cos(45*M_PI/180))), 0, image.size.width, image.size.height)];//在坐标中画出图片
+        }else if(self.startSan == 5){
+            [image drawInRect:CGRectMake(-fabs(selfHeight*cos(45*M_PI/180)), 0, image.size.width, image.size.height)];//在坐标中画出图片
+        }else if(self.startSan == 6){
+            [image drawInRect:CGRectMake(0, -fabs(selfHeight*cos(45*M_PI/180)), image.size.width, image.size.height)];//在坐标中画出图片
+        }else if(self.startSan == 7){
+            [image drawInRect:CGRectMake(0, fabs(selfHeight-(selfHeight*cos(45*M_PI/180))), image.size.width, image.size.height)];//在坐标中画出图片
+        }
+    }else if(self.sanMianCount == 3){
+        float x = fabs((fabs(selfHeight-(selfHeight*cos(45*M_PI/180)))*cos(45*M_PI/180)));
+        if (self.treeStartInde == 2) {
+            [image drawInRect:CGRectMake(-x, -fabs(image.size.width-selfHeight)+x, image.size.width, image.size.height)];//在坐标中画出图片
+        }else if(self.treeStartInde == 4){
+            [image drawInRect:CGRectMake(-fabs(image.size.width-selfHeight)*2+x, x, image.size.width, image.size.height)];//在坐标中画出图片
+        }else if(self.treeStartInde == 6){
+            [image drawInRect:CGRectMake(x, fabs(image.size.width-selfHeight)-x, image.size.width, image.size.height)];//在坐标中画出图片
+        }
+        
     }
     
     
