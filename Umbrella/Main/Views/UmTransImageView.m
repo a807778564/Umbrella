@@ -11,7 +11,7 @@
 #define selfWidh self.frame.size.width
 #define selfHeight self.frame.size.height
 
-#define COS(raot) cos(raot*M_PI/180)
+#define COS cos(45*M_PI/180)
 
 @implementation UmTransImageView
 
@@ -47,33 +47,76 @@
     }else if(self.startSan==8 && self.sanMianCount ==1){
         [image drawInRect:CGRectMake(-fabs(selfWidh-_image.size.width)*2, -fabs(selfWidh-_image.size.width), image.size.height, image.size.width)];//在坐标中画出图片
     }else if(self.sanMianCount ==2){
-        if (self.startSan ==2) {
-            [image drawInRect:CGRectMake((selfHeight-(selfHeight*cos(45*M_PI/180))*2), selfHeight-(selfHeight*cos(45*M_PI/180)), image.size.width, image.size.height)];//在坐标中画出图片
-        }else if(self.startSan == 3){
-            [image drawInRect:CGRectMake((selfHeight-(selfHeight*cos(45*M_PI/180))*2), -fabs(selfHeight*cos(45*M_PI/180)), image.size.width, image.size.height)];//在坐标中画出图片
-        }else if(self.startSan == 4){
-            [image drawInRect:CGRectMake(fabs(selfHeight-(selfHeight*cos(45*M_PI/180))), 0, image.size.width, image.size.height)];//在坐标中画出图片
+        if (self.startSan == 1) {
+            [image drawInRect:CGRectMake(-image.size.width/4,-image.size.width/4, image.size.width, image.size.height)];
+        }else if (self.startSan == 2) {
+            [image drawInRect:CGRectMake(-fabs(selfWidh/2-_image.size.width),fabs((selfWidh-_image.size.width)/2), image.size.width, image.size.height)];
+        }else if (self.startSan == 3) {
+            [image drawInRect:CGRectMake(-image.size.width/4,image.size.width/4, image.size.width, image.size.height)];
+        }else if (self.startSan == 4) {
+            [image drawInRect:CGRectMake(fabs((selfWidh-_image.size.width)/2),selfWidh/2, image.size.width, image.size.height)];
         }else if(self.startSan == 5){
-            [image drawInRect:CGRectMake(-fabs(selfHeight*cos(45*M_PI/180)), 0, image.size.width, image.size.height)];//在坐标中画出图片
+            [image drawInRect:CGRectMake(image.size.width/4,image.size.width/4, image.size.width, image.size.height)];
         }else if(self.startSan == 6){
-            [image drawInRect:CGRectMake(0, -fabs(selfHeight*cos(45*M_PI/180)), image.size.width, image.size.height)];//在坐标中画出图片
+            [image drawInRect:CGRectMake(selfWidh/2,fabs((selfWidh-_image.size.width)/2), image.size.width, image.size.height)];
         }else if(self.startSan == 7){
-            [image drawInRect:CGRectMake(0, fabs(selfHeight-(selfHeight*cos(45*M_PI/180))), image.size.width, image.size.height)];//在坐标中画出图片
+            [image drawInRect:CGRectMake(selfWidh/4,-selfWidh/4, image.size.width, image.size.height)];
         }
+
+//        if (self.startSan ==2) {
+//            [image drawInRect:CGRectMake((selfHeight-(selfHeight*cos(45*M_PI/180))*2), selfHeight-(selfHeight*cos(45*M_PI/180)), image.size.width, image.size.height)];//在坐标中画出图片
+//        }else if(self.startSan == 3){
+//            [image drawInRect:CGRectMake((selfHeight-(selfHeight*cos(45*M_PI/180))*2), -fabs(selfHeight*cos(45*M_PI/180)), image.size.width, image.size.height)];//在坐标中画出图片
+//        }else if(self.startSan == 4){
+//            [image drawInRect:CGRectMake(fabs(selfHeight-(selfHeight*cos(45*M_PI/180))), 0, image.size.width, image.size.height)];//在坐标中画出图片
+//        }else if(self.startSan == 5){
+//            [image drawInRect:CGRectMake(-fabs(selfHeight*cos(45*M_PI/180)), 0, image.size.width, image.size.height)];//在坐标中画出图片
+//        }else if(self.startSan == 6){
+//            [image drawInRect:CGRectMake(0, -fabs(selfHeight*cos(45*M_PI/180)), image.size.width, image.size.height)];//在坐标中画出图片
+//        }else if(self.startSan == 7){
+//            [image drawInRect:CGRectMake(0, fabs(selfHeight-(selfHeight*cos(45*M_PI/180))), image.size.width, image.size.height)];//在坐标中画出图片
+//        }
     }else if(self.sanMianCount == 3){
-        float x = fabs((fabs(selfHeight-(selfHeight*cos(45*M_PI/180)))*cos(45*M_PI/180)));
-        if (self.treeStartInde == 2) {
-            [image drawInRect:CGRectMake(-x, -fabs(image.size.width-selfHeight)+x, image.size.width, image.size.height)];//在坐标中画出图片
-        }else if(self.treeStartInde == 4){
-            [image drawInRect:CGRectMake(-fabs(image.size.width-selfHeight)*2+x, x, image.size.width, image.size.height)];//在坐标中画出图片
-        }else if(self.treeStartInde == 6){
-            [image drawInRect:CGRectMake(x, fabs(image.size.width-selfHeight)-x, image.size.width, image.size.height)];//在坐标中画出图片
+        if (self.startSan == 1) {
+            [image drawInRect:CGRectMake(-selfWidh/4-selfWidh/8,-selfWidh/4, image.size.width, image.size.height)];
+        }else if (self.startSan == 2) {
+            [image drawInRect:CGRectMake(-fabs(selfWidh/2-_image.size.width)/2,fabs(selfWidh-_image.size.width), image.size.width, image.size.height)];
+        }else if (self.startSan == 3) {
+            [image drawInRect:CGRectMake(-fabs(selfWidh-_image.size.width),fabs(selfWidh-_image.size.width)/2, image.size.width, image.size.height)];
+        }else if (self.startSan == 4) {
+            [image drawInRect:CGRectMake(fabs(selfWidh-_image.size.width),fabs(selfWidh/2-_image.size.width)/2, image.size.width, image.size.height)];
+        }else if(self.startSan == 5){
+            [image drawInRect:CGRectMake(selfWidh/8,0, image.size.width, image.size.height)];
+        }else if(self.startSan == 6){
+            [image drawInRect:CGRectMake(fabs(selfWidh/2-_image.size.width)/2,0, image.size.width, image.size.height)];
         }
-        
+//        float x = fabs((fabs(selfHeight-(selfHeight*cos(45*M_PI/180)))*cos(45*M_PI/180)));
+//        if (self.treeStartInde == 2) {
+//            [image drawInRect:CGRectMake(-x, -fabs(image.size.width-selfHeight)+x, image.size.width, image.size.height)];//在坐标中画出图片
+//        }else if(self.treeStartInde == 4){
+//            [image drawInRect:CGRectMake(-fabs(image.size.width-selfHeight)*2+x, x, image.size.width, image.size.height)];//在坐标中画出图片
+//        }else if(self.treeStartInde == 6){
+//            [image drawInRect:CGRectMake(x, fabs(image.size.width-selfHeight)-x, image.size.width, image.size.height)];//在坐标中画出图片
+//        }
+    }else if(self.sanMianCount == 4){
+        if (self.startSan == 1) {
+            [image drawInRect:CGRectMake(-selfWidh/4,0, image.size.width, image.size.height)];
+        }else if (self.startSan == 2) {
+            [image drawInRect:CGRectMake(-selfWidh/2.5,0, image.size.width, image.size.height)];
+        }else if (self.startSan == 3) {
+            [image drawInRect:CGRectMake(0,selfWidh/4, image.size.width, image.size.height)];
+        }else if (self.startSan == 4) {
+            [image drawInRect:CGRectMake(0,0, image.size.width, image.size.height)];
+        }else if(self.startSan == 5){
+            [image drawInRect:CGRectMake(selfWidh/4,0, image.size.width, image.size.height)];
+        }
+    }else if(self.sanMianCount >= 5){
+        if (self.sanMianCount ==8) {
+            [image drawInRect:CGRectMake(0,0, image.size.width, image.size.height)];
+        }else{
+            [image drawInRect:CGRectMake(-selfWidh/5,-selfWidh/5, image.size.width, image.size.height)];
+        }
     }
-    
-    
-    
 }
 /*
 // Only override drawRect: if you perform custom drawing.
