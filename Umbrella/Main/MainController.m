@@ -228,6 +228,30 @@
 //                make.height.equalTo(self.sanmian.mas_height).multipliedBy(0.5);
 //            }];
         }
+        if (checkNumber.count == 1) {
+            [self.imageff mas_remakeConstraints:^(MASConstraintMaker *make) {
+                
+            }];
+
+            [self.imageff mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view.mas_bottom);
+                make.centerX.equalTo(self.view.mas_centerX);
+                make.width.equalTo(self.sanmian.mas_width).multipliedBy(0.5);
+                make.height.equalTo(self.sanmian.mas_height).multipliedBy(0.5);
+            }];
+        }else{
+            [self.imageff mas_remakeConstraints:^(MASConstraintMaker *make) {
+                
+            }];
+
+            [self.imageff mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view.mas_bottom);
+                make.centerX.equalTo(self.view.mas_centerX);
+                make.trailing.equalTo(self.view.mas_trailing).offset(-60);
+                make.leading.equalTo(self.view.mas_leading).offset(60);
+                make.height.equalTo(self.imageff.mas_width);
+            }];
+        }
     }else{
         self.grayView.backgroundColor = [UIColor clearColor];
         [self.view sendSubviewToBack:self.grayView];
