@@ -367,7 +367,11 @@
         }
         
         cutImage = [cutImage rotateImageWithAngle:cutImage Angle:angle IsExpand:YES checkCount:self.checkSan.count checkone:[self.checkSan[0]  integerValue]];
-        UIImage *newi = [self roteAndScall:cutImage checkSanCount:self.checkSan.count startNumber:[self.checkSan[0] integerValue]];
+        UIImage *newi = cutImage;
+        if (self.checkSan.count > 1) {
+            newi = [self roteAndScall:cutImage checkSanCount:self.checkSan.count startNumber:[self.checkSan[0] integerValue]];
+        }
+        
         
 //        bool isUserTanView = false;
 //        if (self.checkSan.count < 4) {
@@ -389,9 +393,9 @@
         if (self.checkType == MainCheckDan) {
 //            UIImage *newImage = cutImage;
             for (NSNumber *check in self.checkSan) {
-//                if (isUserTanView) {
-//                    newImage = [self roteAndScall:cutImage checkSanCount:self.checkSan.count number:[check integerValue]];
-//                }
+                if (self.checkSan.count == 1) {
+                    newi = [self roteAndScall:cutImage checkSanCount:self.checkSan.count startNumber:[check integerValue]];
+                }
                 [self.checkSanMian setObject:newi forKey:check];
             }
             [self.sanmian setCheckImages:self.checkSanMian];
@@ -401,14 +405,20 @@
         }else if(self.checkType == MainCheckShuang){
             if (self.umType == UmTypeWai) {
                 for (NSNumber *check in self.checkSan) {
-                    [self.checkSanWai setObject:cutImage forKey:check];
+                    if (self.checkSan.count == 1) {
+                        newi = [self roteAndScall:cutImage checkSanCount:self.checkSan.count startNumber:[check integerValue]];
+                    }
+                    [self.checkSanWai setObject:newi forKey:check];
                 }
                 [self.sanmian setCheckImages:self.checkSanWai];
                 self.suangWaiImage = [self convertViewToImage:self.sanmian];
 
             }else{
                 for (NSNumber *check in self.checkSan) {
-                    [self.checkSanNei setObject:cutImage forKey:check];
+                    if (self.checkSan.count == 1) {
+                        newi = [self roteAndScall:cutImage checkSanCount:self.checkSan.count startNumber:[check integerValue]];
+                    }
+                    [self.checkSanNei setObject:newi forKey:check];
                 }
                 [self.sanmian setCheckImages:self.checkSanNei];
                 self.suangNeiImage = [self convertViewToImage:self.sanmian];
