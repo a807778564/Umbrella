@@ -16,6 +16,8 @@
 
 @property (nonatomic, assign) NSInteger sanMianCount;
 
+@property (nonatomic, strong) NSMutableArray *checkArray;
+
 @property (nonatomic, assign) NSUInteger treeStartInde;//三个伞面开始的
 
 @end

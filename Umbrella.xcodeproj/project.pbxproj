@@ -74,6 +74,7 @@
 		2C5522D11DAB6F1A0054C39A /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5522C01DAB6F1A0054C39A /* IQToolbar.m */; };
 		2C5522D21DAB6F1A0054C39A /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5522C21DAB6F1A0054C39A /* IQUIView+IQKeyboardToolbar.m */; };
 		2C5522D31DAB6F1A0054C39A /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2C5522C51DAB6F1A0054C39A /* IQKeyboardManager.bundle */; };
+		2C5E7E031DBF5E54008BCDBE /* UMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E7E021DBF5E54008BCDBE /* UMUtils.m */; };
 		2C61B2A21D9CFA1200EDA5CB /* UmbrellaCheckView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61B2A11D9CFA1200EDA5CB /* UmbrellaCheckView.m */; };
 		2C61B2A41D9CFA1D00EDA5CB /* UmbrellaCheckView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C61B2A31D9CFA1D00EDA5CB /* UmbrellaCheckView.xib */; };
 		2C61B2A71D9D0CA300EDA5CB /* UmbrellaImageCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61B2A61D9D0CA300EDA5CB /* UmbrellaImageCheck.m */; };
@@ -235,6 +236,8 @@
 		2C5522C21DAB6F1A0054C39A /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		2C5522C31DAB6F1A0054C39A /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
 		2C5522C51DAB6F1A0054C39A /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		2C5E7E011DBF5E54008BCDBE /* UMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMUtils.h; sourceTree = "<group>"; };
+		2C5E7E021DBF5E54008BCDBE /* UMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMUtils.m; sourceTree = "<group>"; };
 		2C61B2A01D9CFA1200EDA5CB /* UmbrellaCheckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmbrellaCheckView.h; sourceTree = "<group>"; };
 		2C61B2A11D9CFA1200EDA5CB /* UmbrellaCheckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmbrellaCheckView.m; sourceTree = "<group>"; };
 		2C61B2A31D9CFA1D00EDA5CB /* UmbrellaCheckView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UmbrellaCheckView.xib; sourceTree = "<group>"; };
@@ -397,6 +400,8 @@
 				2C48C1F11D9B8ADC00E6BEA0 /* UIImage */,
 				2C48C1F61D9B8ADC00E6BEA0 /* UILabel */,
 				2C48C1F91D9B8ADC00E6BEA0 /* UIView */,
+				2C5E7E011DBF5E54008BCDBE /* UMUtils.h */,
+				2C5E7E021DBF5E54008BCDBE /* UMUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -802,6 +807,7 @@
 				2C5522CB1DAB6F1A0054C39A /* IQUIWindow+Hierarchy.m in Sources */,
 				2C7635C51D9E118C0008ED91 /* UIButton+WebCache.m in Sources */,
 				2C7635BF1D9E118C0008ED91 /* SDWebImageCompat.m in Sources */,
+				2C5E7E031DBF5E54008BCDBE /* UMUtils.m in Sources */,
 				2C5522D01DAB6F1A0054C39A /* IQTitleBarButtonItem.m in Sources */,
 				2C48C23C1D9BC3AD00E6BEA0 /* MainController.m in Sources */,
 				2C48C2031D9B8ADC00E6BEA0 /* AFURLResponseSerialization.m in Sources */,
