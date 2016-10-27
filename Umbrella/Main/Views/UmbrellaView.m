@@ -15,13 +15,15 @@
 
 - (instancetype)init{
     if ([super init]) {
-        self.backgroundColor = [UIColor whiteColor];
+        self.layer.backgroundColor = [UIColor clearColor].CGColor;
+//        self.opaque = NO;
     }
     return self;
 }
 
 - (void)drawRect:(CGRect)rect{
     [self drawTrianglePath];
+    [self drawOtherTrianglePath];
 }
 
 - (void)setCheckImages:(NSMutableDictionary *)checkImages{
@@ -29,7 +31,12 @@
     [self setNeedsDisplay];
 }
 
-// 画三角形
+- (void)setCheckOtherImages:(NSMutableDictionary *)checkOtherImages{
+    _checkOtherImages = checkOtherImages;
+    [self setNeedsDisplay];
+}
+
+// 画底层三角形
 - (void)drawTrianglePath {
     
     UIBezierPath *path1 = [UIBezierPath bezierPath];
@@ -169,6 +176,156 @@
 //    if (_checkImages.count == 1) {
 //        [ima8 drawAtPoint:CGPointMake(33, 0)];
 //    }
+    [path8 fill];
+    //设置画笔颜色
+    UIColor *strokeColor8 = [UIColor grayColor];
+    [strokeColor8 set];
+    //根据我们设置的各个点连线
+    [path8 stroke];
+}
+
+// 画底层三角形
+- (void)drawOtherTrianglePath{
+    
+    UIBezierPath *path1 = [UIBezierPath bezierPath];
+    [path1 moveToPoint:CGPointMake(self.frame.size.width/2, 0)];
+    [path1 addLineToPoint:centerSelf];
+    [path1 addLineToPoint:[self calcCircleCoordinateWithCenter:centerSelf andWithAngle:45 andWithRadius:self.frame.size.width/2]];
+    
+    [path1 closePath];
+    //设置线宽
+    path1.lineWidth = 1;
+    //设置填充颜色 [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.png"]]
+    UIColor *fillColor = _checkOtherImages[@"8"]?[UIColor colorWithPatternImage:_checkOtherImages[@"8"]]:[UIColor clearColor];
+    [fillColor set];
+    [path1 fill];
+    //设置画笔颜色
+    UIColor *strokeColor = [UIColor grayColor];
+    [strokeColor set];
+    //根据我们设置的各个点连线
+    [path1 stroke];
+    
+    UIBezierPath *path2 = [UIBezierPath bezierPath];
+    [path2 moveToPoint:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
+    [path2 addLineToPoint:[self calcCircleCoordinateWithCenter:centerSelf andWithAngle:45 andWithRadius:self.frame.size.width/2]];
+    [path2 addLineToPoint:CGPointMake(self.frame.size.width, self.frame.size.height/2)];
+    [path2 closePath];
+    //设置线宽
+    path2.lineWidth = 1;
+    //设置填充颜色
+    UIColor *fillColor2 = _checkOtherImages[@"7"]?[UIColor colorWithPatternImage:_checkOtherImages[@"7"]]:[UIColor clearColor];
+    [fillColor2 set];
+    [path2 fill];
+    //设置画笔颜色
+    UIColor *strokeColor2 = [UIColor grayColor];
+    [strokeColor2 set];
+    //根据我们设置的各个点连线
+    [path2 stroke];
+    
+    UIBezierPath *path3 = [UIBezierPath bezierPath];
+    [path3 moveToPoint:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
+    [path3 addLineToPoint:CGPointMake(self.frame.size.width, self.frame.size.height/2)];
+    [path3 addLineToPoint:[self calcCircleCoordinateWithCenter:centerSelf andWithAngle:-45 andWithRadius:self.frame.size.width/2]];
+    [path3 closePath];
+    //设置线宽
+    path3.lineWidth = 1;
+    //设置填充颜色
+    UIColor *fillColor3 = _checkOtherImages[@"6"]?[UIColor colorWithPatternImage:_checkOtherImages[@"6"]]:[UIColor clearColor];
+    [fillColor3 set];
+    [path3 fill];
+    //设置画笔颜色
+    UIColor *strokeColor3 = [UIColor grayColor];
+    [strokeColor3 set];
+    //根据我们设置的各个点连线
+    [path3 stroke];
+    
+    UIBezierPath *path4 = [UIBezierPath bezierPath];
+    [path4 moveToPoint:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
+    [path4 addLineToPoint:[self calcCircleCoordinateWithCenter:centerSelf andWithAngle:-45 andWithRadius:self.frame.size.width/2]];
+    [path4 addLineToPoint:CGPointMake(self.frame.size.width/2, self.frame.size.height)];
+    [path4 closePath];
+    //设置线宽
+    path4.lineWidth = 1;
+    //设置填充颜色
+    UIColor *fillColor4 = _checkOtherImages[@"5"]?[UIColor colorWithPatternImage:_checkOtherImages[@"5"]]:[UIColor clearColor];
+    [fillColor4 set];
+    [path4 fill];
+    //设置画笔颜色
+    UIColor *strokeColor4 = [UIColor grayColor];
+    [strokeColor4 set];
+    //根据我们设置的各个点连线
+    [path4 stroke];
+    
+    UIBezierPath *path5 = [UIBezierPath bezierPath];
+    [path5 moveToPoint:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
+    [path5 addLineToPoint:CGPointMake(self.frame.size.width/2, self.frame.size.height)];
+    [path5 addLineToPoint:[self calcCircleCoordinateWithCenter:centerSelf andWithAngle:225 andWithRadius:self.frame.size.width/2]];
+    [path5 closePath];
+    //设置线宽
+    path5.lineWidth = 1;
+    //设置填充颜色
+    UIColor *fillColor5 = _checkOtherImages[@"4"]?[UIColor colorWithPatternImage:_checkOtherImages[@"4"]]:[UIColor clearColor];
+    [fillColor5 set];
+    [path5 fill];
+    //设置画笔颜色
+    UIColor *strokeColor5 = [UIColor grayColor];
+    [strokeColor5 set];
+    //根据我们设置的各个点连线
+    [path5 stroke];
+    
+    UIBezierPath *path6 = [UIBezierPath bezierPath];
+    [path6 moveToPoint:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
+    [path6 addLineToPoint:[self calcCircleCoordinateWithCenter:centerSelf andWithAngle:225 andWithRadius:self.frame.size.width/2]];
+    [path6 addLineToPoint:CGPointMake(0, self.frame.size.height/2)];
+    [path6 closePath];
+    //设置线宽
+    path6.lineWidth = 1;
+    //设置填充颜色
+    UIColor *fillColor6 = _checkOtherImages[@"3"]?[UIColor colorWithPatternImage:_checkOtherImages[@"3"]]:[UIColor clearColor];
+    [fillColor6 set];
+    [path6 fill];
+    //设置画笔颜色
+    UIColor *strokeColor6 = [UIColor grayColor];
+    [strokeColor6 set];
+    //根据我们设置的各个点连线
+    [path6 stroke];
+    
+    UIBezierPath *path7 = [UIBezierPath bezierPath];
+    [path7 moveToPoint:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
+    [path7 addLineToPoint:CGPointMake(0, self.frame.size.height/2)];
+    [path7 addLineToPoint:[self calcCircleCoordinateWithCenter:centerSelf andWithAngle:135 andWithRadius:self.frame.size.width/2]];
+    [path7 closePath];
+    //设置线宽
+    path7.lineWidth = 1;
+    //设置填充颜色
+    UIColor *fillColor7 = _checkOtherImages[@"2"]?[UIColor colorWithPatternImage:_checkOtherImages[@"2"]]:[UIColor clearColor];
+    [fillColor7 set];
+    [path7 fill];
+    //    UIImage *ima7 = _checkImages[@"2"];
+    //    [ima7 drawAtPoint:CGPointMake(0, 0)];
+    //设置画笔颜色
+    UIColor *strokeColor7 = [UIColor grayColor];
+    [strokeColor7 set];
+    //根据我们设置的各个点连线
+    [path7 stroke];
+    
+    UIBezierPath *path8 = [UIBezierPath bezierPath];
+    [path8 moveToPoint:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
+    [path8 addLineToPoint:[self calcCircleCoordinateWithCenter:centerSelf andWithAngle:135 andWithRadius:self.frame.size.width/2]];
+    [path8 addLineToPoint:CGPointMake(self.frame.size.width/2, 0)];
+    [path8 closePath];
+    //设置线宽
+    path8.lineWidth = 1;
+    //设置填充颜色
+    UIColor *fillColor8 = _checkOtherImages[@"1"]?[UIColor colorWithPatternImage:_checkOtherImages[@"1"]]:[UIColor clearColor];
+//    UIImage *ima = [[UIImage alloc] init];
+    
+    [fillColor8 set];
+    [path8 fill];
+    //    UIImage *ima8 = _checkImages[@"1"];
+    //    if (_checkImages.count == 1) {
+    //        [ima8 drawAtPoint:CGPointMake(33, 0)];
+    //    }
     [path8 fill];
     //设置画笔颜色
     UIColor *strokeColor8 = [UIColor grayColor];

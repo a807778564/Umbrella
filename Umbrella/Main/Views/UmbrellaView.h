@@ -10,6 +10,8 @@
 
 @interface UmbrellaView : UIView
 
-@property (nonatomic, strong) NSMutableDictionary *checkImages;
+@property (nonatomic, strong) NSMutableDictionary *checkImages;//底部图片
+
+@property (nonatomic, strong) NSMutableDictionary *checkOtherImages;//特效图片
 
 @end

@@ -23,6 +23,7 @@
 - (instancetype)init{
     if ([super init]) {
         self.utils = [[UMUtils alloc] init];
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }

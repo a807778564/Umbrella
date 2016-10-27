@@ -34,6 +34,8 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *contentView;
 
+@property (nonatomic, assign) BOOL isCheckSpecial;//是否选择特效花板
+
 @property (nonatomic, strong) UmbrellaCheckView *checkView;//伞面选择的按钮
 
 @property (nonatomic, strong) UIView *grayView;//阴影遮盖的View;
@@ -49,6 +51,12 @@
 @property (nonatomic, strong) NSMutableDictionary *checkSanWai;//外伞面的图片图片集合
 
 @property (nonatomic, strong) NSMutableDictionary *checkSanNei;//内伞面的图片图片集合
+
+@property (nonatomic, strong) NSMutableDictionary *checkOtherSanMian;//特效单层伞面的图片集合
+
+@property (nonatomic, strong) NSMutableDictionary *checkOtherSanWai;//特效外伞面的图片图片集合
+
+@property (nonatomic, strong) NSMutableDictionary *checkOtherSanNei;//特效内伞面的图片图片集合
 
 @property (nonatomic, assign) MainCheckType checkType;
 
@@ -82,18 +90,19 @@
     
     [self setLeftArrow];
     self.checkSanMian = [[NSMutableDictionary alloc] init];
+    self.checkOtherSanMian = [[NSMutableDictionary alloc] init];
+    self.checkOtherSanWai = [[NSMutableDictionary alloc] init];
+    self.checkOtherSanNei = [[NSMutableDictionary alloc] init];
 //    self.checkSanWai = [[NSMutableDictionary alloc] init];
 //    self.checkSanNei = [[NSMutableDictionary alloc] init];
     self.orgImage = [[NSMutableArray alloc] init];
     self.checkType = MainCheckDan;//默认单层
     self.umType = UmTypeNei;//默认内层
     
-    self.imageff = [[UmTransImageView alloc] init];
-    self.imageff.backgroundColor = RGBACOLOR(235, 235, 235, 1);
-    
+    self.imageff = [[UmTransImageView alloc] init];    
     [self.view addSubview:self.imageff];
     [self.imageff mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view.mas_bottom);
+        make.top.equalTo(self.view.mas_bottom);
         make.centerX.equalTo(self.view.mas_centerX);
         make.trailing.equalTo(self.view.mas_trailing).offset(-60);
         make.leading.equalTo(self.view.mas_leading).offset(60);
@@ -307,6 +316,11 @@
         [alert addAction:[UIAlertAction actionWithTitle:cateArray[i][@"typeName"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             self.isHostPhoto = NO;
             [self showImageCheckView:cateArray[i][@"typeCategoryId"]];
+            if ([cateArray[i][@"typeName"] isEqualToString:@"特效花版"]) {
+                self.isCheckSpecial = YES;
+            }else{
+                self.isCheckSpecial = NO;
+            }
         }]];
     }
     [self presentViewController:alert animated:YES completion:^{
@@ -467,10 +481,14 @@
                 if (self.checkSan.count == 1) {
                     newi = [self roteAndScall:cutImage checkSanCount:self.checkSan.count startNumber:[check integerValue]];
                 }
-                [self.checkSanMian setObject:newi forKey:check];
+                if (self.isCheckSpecial) {
+                    [self.checkOtherSanMian setObject:newi forKey:check];
+                }else{
+                    [self.checkSanMian setObject:newi forKey:check];
+                }
             }
             [self.sanmian setCheckImages:self.checkSanMian];
-            
+            [self.sanmian setCheckOtherImages:self.checkOtherSanMian];
             self.danImage = [self convertViewToImage:self.sanmian];
         }else if(self.checkType == MainCheckShuang){
             if (self.umType == UmTypeWai) {
@@ -478,9 +496,14 @@
                     if (self.checkSan.count == 1) {
                         newi = [self roteAndScall:cutImage checkSanCount:self.checkSan.count startNumber:[check integerValue]];
                     }
-                    [self.checkSanWai setObject:newi forKey:check];
+                    if (self.isCheckSpecial) {
+                        [self.checkOtherSanWai setObject:newi forKey:check];
+                    }else{
+                        [self.checkSanWai setObject:newi forKey:check];
+                    }
                 }
                 [self.sanmian setCheckImages:self.checkSanWai];
+                [self.sanmian setCheckOtherImages:self.checkOtherSanWai];
                 self.suangWaiImage = [self convertViewToImage:self.sanmian];
 
             }else{
@@ -488,9 +511,14 @@
                     if (self.checkSan.count == 1) {
                         newi = [self roteAndScall:cutImage checkSanCount:self.checkSan.count startNumber:[check integerValue]];
                     }
-                    [self.checkSanNei setObject:newi forKey:check];
+                    if (self.isCheckSpecial) {
+                        [self.checkOtherSanNei setObject:newi forKey:check];
+                    }else{
+                        [self.checkSanNei setObject:newi forKey:check];
+                    }
                 }
                 [self.sanmian setCheckImages:self.checkSanNei];
+                [self.sanmian setCheckOtherImages:self.checkOtherSanNei];
                 self.suangNeiImage = [self convertViewToImage:self.sanmian];
             }
         }
@@ -522,6 +550,7 @@
             return;
         }
         [self.sanmian setCheckImages:self.checkSanNei];
+        [self.sanmian setCheckOtherImages:self.checkOtherSanNei];
         self.umType = UmTypeNei;
         self.neiBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.waiBtn.backgroundColor = [UIColor whiteColor];
@@ -532,6 +561,7 @@
             return;
         }
         [self.sanmian setCheckImages:self.checkSanWai];
+        [self.sanmian setCheckOtherImages:self.checkOtherSanWai];
         self.umType = UmTypeWai;
         self.waiBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.neiBtn.backgroundColor = [UIColor whiteColor];
@@ -539,6 +569,7 @@
     }else if(sender.tag == 3){
         self.checkType =  MainCheckDan;
         [self.sanmian setCheckImages:self.checkSanMian];
+        [self.sanmian setCheckOtherImages:self.checkOtherSanMian];
         self.danBtn.backgroundColor = RGBACOLOR(251, 145, 50, 1);
         self.allBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.suangBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
@@ -556,8 +587,10 @@
         }
         if (self.umType == UmTypeWai) {
             [self.sanmian setCheckImages:self.checkSanWai];
+            [self.sanmian setCheckOtherImages:self.checkOtherSanWai];
         }else{
             [self.sanmian setCheckImages:self.checkSanNei];
+            [self.sanmian setCheckOtherImages:self.checkOtherSanNei];
         }
         self.suangNeiImage = [self convertViewToImage:self.sanmian];
         self.suangWaiImage = [self convertViewToImage:self.sanmian];
@@ -569,13 +602,16 @@
     }else if(sender.tag == 5){
         if (self.checkType == MainCheckDan) {
             [self.checkSanMian removeAllObjects];
+            [self.checkOtherSanMian removeAllObjects];
             [self.sanmian setCheckImages:self.checkSanMian];
         }else if(self.checkType == MainCheckShuang){
             if (self.umType == UmTypeWai) {
                 [self.checkSanWai removeAllObjects];
+                [self.checkOtherSanWai removeAllObjects];
                 [self.sanmian setCheckImages:self.checkSanWai];
             }else{
                 [self.checkSanNei removeAllObjects];
+                [self.checkOtherSanNei removeAllObjects];
                 [self.sanmian setCheckImages:self.checkSanNei];
             }
         }
