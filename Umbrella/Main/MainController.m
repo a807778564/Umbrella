@@ -60,7 +60,9 @@
 
 @property (nonatomic, assign) MainCheckType checkType;
 
-@property (nonatomic, assign) UmType umType;
+@property (nonatomic, assign) UmType umType;//双面内侧和外侧
+
+@property (nonatomic, assign) UmType danUmType;//单面内侧和外侧
 
 @property (nonatomic, strong) UIImage *danImage;//单面的图片
 
@@ -98,6 +100,7 @@
     self.orgImage = [[NSMutableArray alloc] init];
     self.checkType = MainCheckDan;//默认单层
     self.umType = UmTypeNei;//默认内层
+    self.danUmType = UmTypeNei;//默认内层
     
     self.imageff = [[UmTransImageView alloc] init];    
     [self.view addSubview:self.imageff];
@@ -545,29 +548,44 @@
 
 - (IBAction)someBtnOnclick:(UIButton *)sender {
     if (sender.tag == 1) {
-        if (self.checkType == MainCheckDan && self.checkSanMian.allKeys.count>0) {
-            [self.view makeToast:@"单面只能选择一面!"];
-            return;
+        if (self.checkType == MainCheckDan) {
+            if (self.checkSanMian.allKeys.count>0 || self.checkOtherSanMian.allKeys.count>0) {
+                [self.view makeToast:@"单面只能选择一面!"];
+                return;
+            }
+            self.danUmType = UmTypeNei;
+        }else{
+            self.umType = UmTypeNei;
         }
         [self.sanmian setCheckImages:self.checkSanNei];
         [self.sanmian setCheckOtherImages:self.checkOtherSanNei];
-        self.umType = UmTypeNei;
         self.neiBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.waiBtn.backgroundColor = [UIColor whiteColor];
         NSLog(@"内");
     }else if(sender.tag == 2){
-        if (self.checkType == MainCheckDan && self.checkSanMian.allKeys.count>0) {
-            [self.view makeToast:@"单面只能选择一面!"];
-            return;
+        if (self.checkType == MainCheckDan) {
+            if (self.checkSanMian.allKeys.count>0 || self.checkOtherSanMian.allKeys.count>0) {
+                [self.view makeToast:@"单面只能选择一面!"];
+                return;
+            }
+            self.danUmType = UmTypeWai;
+        }else{
+            self.umType = UmTypeWai;
         }
         [self.sanmian setCheckImages:self.checkSanWai];
         [self.sanmian setCheckOtherImages:self.checkOtherSanWai];
-        self.umType = UmTypeWai;
         self.waiBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.neiBtn.backgroundColor = [UIColor whiteColor];
         NSLog(@"外");
     }else if(sender.tag == 3){
         self.checkType =  MainCheckDan;
+        if (self.danUmType == UmTypeWai) {
+            self.waiBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+            self.neiBtn.backgroundColor = [UIColor whiteColor];
+        }else{
+            self.neiBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+            self.waiBtn.backgroundColor = [UIColor whiteColor];
+        }
         [self.sanmian setCheckImages:self.checkSanMian];
         [self.sanmian setCheckOtherImages:self.checkOtherSanMian];
         self.danBtn.backgroundColor = RGBACOLOR(251, 145, 50, 1);
@@ -576,6 +594,13 @@
         self.submitBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         NSLog(@"单层");
     }else if(sender.tag == 4){
+        if (self.umType == UmTypeWai) {
+            self.waiBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+            self.neiBtn.backgroundColor = [UIColor whiteColor];
+        }else{
+            self.neiBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+            self.waiBtn.backgroundColor = [UIColor whiteColor];
+        }
         self.checkType =  MainCheckShuang;
         if (self.checkSanNei == nil || self.checkSanWai == nil) {
             self.checkSanNei = [[NSMutableDictionary alloc] init];
@@ -626,7 +651,7 @@
         self.suangBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.danBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         if (self.checkType == MainCheckDan) {
-            if (self.umType == UmTypeNei) {
+            if (self.danUmType == UmTypeNei) {
                 [self submitImage:self.danImage outImage:self.nilImage type:1 orgImage:self.orgImage];
             }else{
                 [self submitImage:self.nilImage outImage:self.danImage type:1 orgImage:self.orgImage];
