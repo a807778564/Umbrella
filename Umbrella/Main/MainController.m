@@ -313,6 +313,7 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alert addAction:[UIAlertAction actionWithTitle:@"手机图库" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.isHostPhoto = YES;
+        self.isCheckSpecial = NO;
         [self showHostImage];
     }]];
     for (int i = 0; i<cateArray.count; i++) {
@@ -383,7 +384,7 @@
     [um didCutImageFinish:^(UIImage *cutImage) {
         if (self.checkSan.count <= 3) {
             if (self.checkSan.count == 1) {
-                cutImage = [cutImage imageAtRect:CGRectMake(0, 0,(int)(self.sanmian.frame.size.height*(45*3.14/180/2)),self.sanmian.frame.size.height/2)];
+                cutImage = [cutImage imageAtRect:CGRectMake(0, 0,self.sanmian.frame.size.height/2,self.sanmian.frame.size.height/2)];
             }else if(self.checkSan.count == 2){
                 double width = (self.sanmian.frame.size.width/2) * (self.sanmian.frame.size.width/2) + (self.sanmian.frame.size.width/2) * (self.sanmian.frame.size.width/2);
                 cutImage = [cutImage imageAtRect:CGRectMake(0, 0, sqrt(width), sqrt(width))];
@@ -401,7 +402,9 @@
 //        }
         
         float angle = (360-([self.checkSan[0] integerValue]-1)*45-180);
-        if (self.checkSan.count ==2 || self.checkSan.count == 3) {
+        if(self.checkSan.count == 1){
+            angle =180-(22.5 + ([self.checkSan[0] integerValue]-1)*45);
+        }else if (self.checkSan.count ==2 || self.checkSan.count == 3) {
             angle = 180-45*[self.checkSan[0] integerValue];
             if (self.checkSan.count==2) {//z
                 if ([self.checkSan[self.checkSan.count-1] integerValue]==8) {
@@ -443,26 +446,26 @@
                 }
             }
         }else if(self.checkSan.count == 6){
-            angle = 135-45*[self.checkSan[0] integerValue];
+            angle = 90-45*[self.checkSan[0] integerValue];
             if ([self.utils isOther:self.checkSan]) {
                 if ([self.utils isConp:@"4" check:self.checkSan] && [self.utils isConp:@"5" check:self.checkSan]&& [self.utils isConp:@"6" check:self.checkSan]) {
-                    angle = -45;
-                }else if([self.utils isConp:@"5" check:self.checkSan] && [self.utils isConp:@"6" check:self.checkSan]&& [self.utils isConp:@"7" check:self.checkSan]) {
                     angle = -90;
-                }else if([self.utils isConp:@"6" check:self.checkSan] && [self.utils isConp:@"7" check:self.checkSan]&& [self.utils isConp:@"8" check:self.checkSan]) {
+                }else if([self.utils isConp:@"5" check:self.checkSan] && [self.utils isConp:@"6" check:self.checkSan]&& [self.utils isConp:@"7" check:self.checkSan]) {
                     angle = -135;
-                }else if([self.utils isConp:@"7" check:self.checkSan] && [self.utils isConp:@"8" check:self.checkSan]&& [self.utils isConp:@"1" check:self.checkSan]) {
+                }else if([self.utils isConp:@"6" check:self.checkSan] && [self.utils isConp:@"7" check:self.checkSan]&& [self.utils isConp:@"8" check:self.checkSan]) {
                     angle = -180;
-                }else if([self.utils isConp:@"8" check:self.checkSan] && [self.utils isConp:@"4" check:self.checkSan]&& [self.utils isConp:@"2" check:self.checkSan]) {
+                }else if([self.utils isConp:@"7" check:self.checkSan] && [self.utils isConp:@"8" check:self.checkSan]&& [self.utils isConp:@"1" check:self.checkSan]) {
                     angle = -225;
+                }else if([self.utils isConp:@"8" check:self.checkSan] && [self.utils isConp:@"4" check:self.checkSan]&& [self.utils isConp:@"2" check:self.checkSan]) {
+                    angle = -270;
                 }
             }
         }else if(self.checkSan.count == 7){
-            angle = 135-45*[self.checkSan[0] integerValue];
-            if ([self.utils isOther:self.checkSan]) {
-                NSInteger notCho = [self.utils diffCount:self.checkSan];
-                angle = - 45*(notCho-2);
-            }
+//            angle = -45*[self.checkSan[0] integerValue];
+//            if ([self.utils isOther:self.checkSan]) {
+            NSInteger notCho = [self.utils diffCount:self.checkSan];
+            angle = - 45*(notCho-1);
+//            }
         }else if(self.checkSan.count == 8){
             angle =0;
         }

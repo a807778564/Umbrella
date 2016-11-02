@@ -27,7 +27,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:RGBACOLOR(246, 226, 77, 1)] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:18]};
 
-     self.title = @"裁剪图片";
+    self.title = @"裁剪图片";
     self.view.backgroundColor = RGBACOLOR(34, 34, 34, 1);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" size:CGSizeMake(36, 18) target:self action:@selector(doRightAction)];
     
@@ -45,6 +45,7 @@
             make.leading.equalTo(self.view.mas_leading).offset(60);
             make.height.equalTo(self.showImageView.mas_width);
             self.canMove = YES;
+            self.hostImage = [self scaleToSize:CGSizeMake((selfWidth-120), (selfWidth-120)) image:self.hostImage];
         }else{
             if ((self.hostImage.size.height*selfWidth/self.hostImage.size.width) < (selfWidth-120)) {
                 make.width.offset(selfWidth);
@@ -59,8 +60,6 @@
         }
     }];
     [self.showImageView setImage:self.hostImage];
-    
-    
 }
 
 //等比例缩放

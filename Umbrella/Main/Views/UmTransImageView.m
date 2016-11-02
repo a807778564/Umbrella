@@ -13,7 +13,8 @@
 #define selfHeight self.frame.size.height
 
 #define COS cos(45*M_PI/180)
-
+#define Sin sin(22.5*M_PI/180)
+#define Cos cos(22.5*M_PI/180)
 @interface UmTransImageView()
 @property (nonatomic, strong) UMUtils *utils;
 @end
@@ -36,22 +37,33 @@
 - (void)drawRect:(CGRect)rect{
     UIImage *image = _image;
     NSLog(@"cos%.2f",cos(45*M_PI/180));
+    
+    float width = fabs(sqrt((selfWidh/2*selfWidh/2)+(selfWidh*selfWidh))-selfWidh);
+    float cha = 2;
     if (self.startSan==1 && self.sanMianCount ==1) {
-        [image drawInRect:CGRectMake(selfWidh-_image.size.width, 0, image.size.width, image.size.height)];//在坐标中画出图片
+//        [image drawInRect:CGRectMake(selfWidh-_image.size.width, 0, image.size.width, image.size.height)];//在坐标中画出图片
+        [image drawInRect:CGRectMake(width,-width+cha, image.size.width, image.size.height)];//在坐标中画出图片
     }else if(self.startSan==2 && self.sanMianCount ==1){
-        [image drawInRect:CGRectMake(-fabs(selfWidh-_image.size.width), fabs(selfWidh-_image.size.width), image.size.height, image.size.width)];//在坐标中画出图片
+//        [image drawInRect:CGRectMake(-fabs(selfWidh-_image.size.width), fabs(selfWidh-_image.size.width), image.size.height, image.size.width)];//在坐标中画出图片
+        [image drawInRect:CGRectMake(-width, width*2-cha*2, image.size.height, image.size.width)];//在坐标中画出图片
     }else if(self.startSan==3 && self.sanMianCount ==1){
-        [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];//在坐标中画出图片
+//        [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];//在坐标中画出图片
+        [image drawInRect:CGRectMake(-width+cha, -(Sin*selfWidh)-cha*2, image.size.width, image.size.height)];//在坐标中画出图片
     }else if(self.startSan==4 && self.sanMianCount ==1){
-        [image drawInRect:CGRectMake(fabs(selfWidh-_image.size.width), 0, image.size.width, image.size.height)];//在坐标中画出图片
+//        [image drawInRect:CGRectMake(fabs(selfWidh-_image.size.width), 0, image.size.width, image.size.height)];//在坐标中画出图片
+        [image drawInRect:CGRectMake((Sin*selfWidh/2)+cha, -(Sin*selfWidh/2), image.size.width, image.size.height)];//在坐标中画出图片
     }else if(self.startSan==5 && self.sanMianCount ==1){
-        [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];//在坐标中画出图片
+//        [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];//在坐标中画出图片
+        [image drawInRect:CGRectMake(-(Cos*selfWidh/2)+cha*2, -(Sin*selfWidh/2), image.size.width, image.size.height)];//在坐标中画出图片
     }else if(self.startSan==6 && self.sanMianCount ==1){
-        [image drawInRect:CGRectMake(0, -fabs(selfWidh-_image.size.width)*2, image.size.height, image.size.width)];//在坐标中画出图片
+//        [image drawInRect:CGRectMake(0, -fabs(selfWidh-_image.size.width)*2, image.size.height, image.size.width)];//在坐标中画出图片
+        [image drawInRect:CGRectMake(-(Sin*selfWidh/2)+cha*2, -(Cos*selfWidh/2)-cha, image.size.height, image.size.width)];//在坐标中画出图片
     }else if(self.startSan==7 && self.sanMianCount ==1){
-        [image drawInRect:CGRectMake(0, fabs(selfWidh-_image.size.height), image.size.width, image.size.height)];//在坐标中画出图片
+//        [image drawInRect:CGRectMake(0, fabs(selfWidh-_image.size.height), image.size.width, image.size.height)];//在坐标中画出图片
+        [image drawInRect:CGRectMake(-(Sin*selfWidh/2), (Sin*selfWidh/2)/2+cha, image.size.height, image.size.width)];//在坐标中画出图片
     }else if(self.startSan==8 && self.sanMianCount ==1){
-        [image drawInRect:CGRectMake(-fabs(selfWidh-_image.size.width)*2, -fabs(selfWidh-_image.size.width), image.size.height, image.size.width)];//在坐标中画出图片
+//        [image drawInRect:CGRectMake(-fabs(selfWidh-_image.size.width)*2, -fabs(selfWidh-_image.size.width), image.size.height, image.size.width)];//在坐标中画出图片
+        [image drawInRect:CGRectMake(-(Cos*selfWidh/2)-cha*2, -(Sin*selfWidh/2)/2-cha*2, image.size.height, image.size.width)];//在坐标中画出图片
     }else if(self.sanMianCount ==2){
         if (self.startSan == 1) {
             if ([self.utils isOther:self.checkArray]) {

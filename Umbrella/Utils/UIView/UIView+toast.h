@@ -17,4 +17,7 @@
 -(void)makeToast:(NSString *)message;
 
 - (void)setLayerBorderWidth:(CGFloat)width borderCorlor:(UIColor *)color corner:(CGFloat)corner;
+
+- (void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view;
+- (void)setDefaultAnchorPointforView:(UIView *)view;
 @end

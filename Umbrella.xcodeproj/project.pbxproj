@@ -94,6 +94,7 @@
 		2C7635C81D9E118C0008ED91 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7635B81D9E118C0008ED91 /* UIImageView+HighlightedWebCache.m */; };
 		2C7635C91D9E118C0008ED91 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7635BA1D9E118C0008ED91 /* UIImageView+WebCache.m */; };
 		2C7635CA1D9E118C0008ED91 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7635BC1D9E118C0008ED91 /* UIView+WebCacheOperation.m */; };
+		2CE82B911DC733CA00E3C52E /* UmCutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE82B901DC733CA00E3C52E /* UmCutView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -275,6 +276,10 @@
 		2C7635BA1D9E118C0008ED91 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		2C7635BB1D9E118C0008ED91 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		2C7635BC1D9E118C0008ED91 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		2C8243DC1DC9CFA20043F763 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		2C8243DD1DC9CFA30043F763 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		2CE82B8F1DC733CA00E3C52E /* UmCutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmCutView.h; sourceTree = "<group>"; };
+		2CE82B901DC733CA00E3C52E /* UmCutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UmCutView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +310,8 @@
 				1C17AC541DA7ECA500A50117 /* UmCutImageView.m */,
 				2C37BEE01DAE3E5C007FB4DD /* UmTransImageView.h */,
 				2C37BEE11DAE3E5C007FB4DD /* UmTransImageView.m */,
+				2CE82B8F1DC733CA00E3C52E /* UmCutView.h */,
+				2CE82B901DC733CA00E3C52E /* UmCutView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -781,6 +788,7 @@
 				2C48C2091D9B8ADC00E6BEA0 /* UIAlertView+AFNetworking.m in Sources */,
 				2C48C2191D9B8ADC00E6BEA0 /* UIBarButtonItem+HRS.m in Sources */,
 				2C5522C91DAB6F1A0054C39A /* IQUIView+Hierarchy.m in Sources */,
+				2CE82B911DC733CA00E3C52E /* UmCutView.m in Sources */,
 				2C48C1FC1D9B8ADC00E6BEA0 /* AFHTTPRequestOperation.m in Sources */,
 				2C48C2111D9B8ADC00E6BEA0 /* MASConstraintMaker.m in Sources */,
 				2C7635C31D9E118C0008ED91 /* SDWebImageManager.m in Sources */,
@@ -855,6 +863,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2C48C1931D9B62BA00E6BEA0 /* Base */,
+				2C8243DC1DC9CFA20043F763 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -863,6 +872,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2C48C1981D9B62BA00E6BEA0 /* Base */,
+				2C8243DD1DC9CFA30043F763 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -874,6 +884,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -923,6 +934,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

@@ -10,27 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Umbrella/Main/UmPhotoCutController.m"
-            timestampString = "497848031.696771"
+            timestampString = "499584395.59274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Umbrella/Main/UmPhotoCutController.m"
-            timestampString = "497848031.696771"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168">
+            startingLineNumber = "167"
+            endingLineNumber = "167">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -50,11 +34,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Umbrella/Main/MainController.m"
-            timestampString = "499247665.081114"
+            timestampString = "499756645.15318"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "630"
-            endingLineNumber = "630"
+            startingLineNumber = "632"
+            endingLineNumber = "632"
             landmarkName = "-someBtnOnclick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -82,11 +66,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Umbrella/Main/Views/UmTransImageView.m"
-            timestampString = "499247160.980877"
+            timestampString = "499762821.852721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -98,11 +82,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Umbrella/Main/Views/UmTransImageView.m"
-            timestampString = "499247160.980877"
+            timestampString = "499762821.852721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -113,13 +97,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Umbrella/Main/MainController.m"
-            timestampString = "499247011.900535"
+            filePath = "Umbrella/Main/Views/UmbrellaView.m"
+            timestampString = "499330129.90392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
-            landmarkName = "-showAction:"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
+            landmarkName = "-drawTopTrianglePath"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -129,13 +113,61 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Umbrella/Main/MainController.m"
-            timestampString = "499247011.900535"
+            filePath = "Umbrella/Main/Views/UmCutImageView.m"
+            timestampString = "499749362.040001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
-            landmarkName = "-showAction:"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
+            landmarkName = "-getSubImage:hostImage:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Umbrella/Main/Views/UmCutImageView.m"
+            timestampString = "499682979.542986"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "-cutImageWhenBack:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Umbrella/Main/Views/UmCutImageView.m"
+            timestampString = "499747682.388929"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-touchesBegan:withEvent:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Umbrella/Main/Views/UmTransImageView.m"
+            timestampString = "499762285.0269"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

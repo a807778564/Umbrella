@@ -94,4 +94,23 @@ static const CGFloat CSToastFadeDuration        = 0.2;
 //    btn.layer.shadowOpacity = 1;
     return btn;
 }
+
+
+- (void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view
+{
+    CGPoint oldOrigin = view.frame.origin;
+    view.layer.anchorPoint = anchorPoint;
+    CGPoint newOrigin = view.frame.origin;
+    
+    CGPoint transition;
+    transition.x = newOrigin.x - oldOrigin.x;
+    transition.y = newOrigin.y - oldOrigin.y;
+    
+    view.center = CGPointMake (view.center.x - transition.x, view.center.y - transition.y);
+}
+
+- (void)setDefaultAnchorPointforView:(UIView *)view
+{
+    [self setAnchorPoint:CGPointMake(0.5f, 0.5f) forView:view];
+}
 @end

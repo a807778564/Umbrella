@@ -31,6 +31,7 @@
 
 - (void)setCageteId:(NSString *)cageteId{
     self.secmeArray = [[NSMutableArray alloc] init];
+    [self.cageCheck removeAllSegments];
     [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageType?" Parames:@{@"mobile":[[NSUserDefaults standardUserDefaults] valueForKey:@"mobile"],@"typeId":cageteId} success:^(id successData) {
         NSArray *cateArray = successData[@"object"];
         [self.secmeArray addObjectsFromArray:cateArray];
@@ -97,7 +98,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     CheckImageCollectionCell *cell = (CheckImageCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
     UIImage *choImage = cell.showImage.image;
-    [self.cageCheck removeAllSegments];
+//    [self.cageCheck removeAllSegments];
     self.chose(choImage);
 }
 
