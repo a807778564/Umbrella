@@ -1,4 +1,5 @@
 # Xcode
+<<<<<<< HEAD
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
@@ -7,6 +8,10 @@ build/
 DerivedData/
 
 ## Various settings
+=======
+.DS_Store
+*/build/*
+>>>>>>> 6b9e5eac953e51ec49a7cdb874b1965388443784
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -15,6 +20,7 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+<<<<<<< HEAD
 xcuserdata/
 
 ## Other
@@ -61,3 +67,14 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+=======
+xcuserdata
+profile
+*.moved-aside
+DerivedData
+.idea/
+*.hmap
+
+#CocoaPods
+Pods
+>>>>>>> 6b9e5eac953e51ec49a7cdb874b1965388443784
