@@ -92,7 +92,7 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
-    [self setLeftArrow];
+//    [self setLeftArrow];
     self.checkSanMian = [[NSMutableDictionary alloc] init];
     self.checkOtherSanMian = [[NSMutableDictionary alloc] init];
     self.checkOtherSanWai = [[NSMutableDictionary alloc] init];
@@ -299,17 +299,17 @@
 
 //显示 花纹选择
 - (void)showImageCheck{
-    if (!self.showCateArray) {
-        [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageType?" Parames:@{@"mobile":[[NSUserDefaults standardUserDefaults] valueForKey:@"mobile"],@"typeId":@0} success:^(id successData) {
-            NSArray *cateArray = successData[@"object"];
-            self.showCateArray= cateArray;
-            [self showAction:self.showCateArray];
-        } errorBlock:^(NSError *error) {
-            
-        }];
-    }else{
+//    if (!self.showCateArray) {
+//        [[HttpManager sharedHttpManager] getWithUrl:@"/shop/common/getImageType?" Parames:@{@"mobile":[[NSUserDefaults standardUserDefaults] valueForKey:@"mobile"],@"typeId":@0} success:^(id successData) {
+//            NSArray *cateArray = successData[@"object"];
+//            self.showCateArray= cateArray;
+//            [self showAction:self.showCateArray];
+//        } errorBlock:^(NSError *error) {
+//
+//        }];
+//    }else{
         [self showAction:self.showCateArray];
-    }
+//    }
 }
 
 - (void)showAction:(NSArray *)cateArray{
@@ -319,20 +319,18 @@
         self.isCheckSpecial = NO;
         [self showHostImage];
     }]];
-    for (int i = 0; i<cateArray.count; i++) {
-        [alert addAction:[UIAlertAction actionWithTitle:cateArray[i][@"typeName"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            self.isHostPhoto = NO;
-            [self showImageCheckView:cateArray[i][@"typeCategoryId"]];
-            if ([cateArray[i][@"typeName"] isEqualToString:@"特效花版"]) {
-                self.isCheckSpecial = YES;
-            }else{
-                self.isCheckSpecial = NO;
-            }
-        }]];
-    }
-    [self presentViewController:alert animated:YES completion:^{
-        
-    }];
+//    for (int i = 0; i<cateArray.count; i++) {
+//        [alert addAction:[UIAlertAction actionWithTitle:cateArray[i][@"typeName"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            self.isHostPhoto = NO;
+//            [self showImageCheckView:cateArray[i][@"typeCategoryId"]];
+//            if ([cateArray[i][@"typeName"] isEqualToString:@"特效花版"]) {
+//                self.isCheckSpecial = YES;
+//            }else{
+//                self.isCheckSpecial = NO;
+//            }
+//        }]];
+//    }
+    [self presentViewController:alert animated:YES completion:^{}];
 }
 
 //现实图片view
