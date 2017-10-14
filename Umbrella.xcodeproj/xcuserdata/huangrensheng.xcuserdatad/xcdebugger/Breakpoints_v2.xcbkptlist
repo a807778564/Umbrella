@@ -34,11 +34,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Umbrella/Main/MainController.m"
-            timestampString = "499756645.15318"
+            timestampString = "505626453.446726"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "632"
-            endingLineNumber = "632"
+            startingLineNumber = "637"
+            endingLineNumber = "637"
             landmarkName = "-someBtnOnclick:"
             landmarkType = "7">
          </BreakpointContent>

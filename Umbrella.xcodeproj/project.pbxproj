@@ -987,7 +987,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sgq.umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "780f2e73-a42a-4a36-901e-751123ac520c";
+				PROVISIONING_PROFILE = "ea1f9735-bf31-483a-bf9a-aa8d334e0e86";
 				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.sgq.umbrella";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -30,6 +30,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;//提交
 
+@property (weak, nonatomic) IBOutlet UIButton *orderList;//订单
+
 @property (weak, nonatomic) IBOutlet UIView *lienView;//分割线
 
 @property (weak, nonatomic) IBOutlet UIScrollView *contentView;
@@ -111,11 +113,12 @@
         make.leading.equalTo(self.view.mas_leading).offset(60);
         make.height.equalTo(self.imageff.mas_width);
     }];
-        CGFloat cor = (self.view.frame.size.width - 17*2 - 47*3);
-    self.danBtn.layer.cornerRadius =cor/8;
-    self.suangBtn.layer.cornerRadius = cor/8;
-    self.allBtn.layer.cornerRadius = cor/8;
-    self.submitBtn.layer.cornerRadius = cor/8;
+        CGFloat cor = (self.view.frame.size.width - 17*2 - 20*4);
+    self.danBtn.layer.cornerRadius =cor/10;
+    self.suangBtn.layer.cornerRadius = cor/10;
+    self.allBtn.layer.cornerRadius = cor/10;
+    self.submitBtn.layer.cornerRadius = cor/10;
+    self.orderList.layer.cornerRadius = cor/10;
     UITapGestureRecognizer *sanTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickSanMian)];
     [self.sanmian addGestureRecognizer:sanTap];
     
@@ -595,6 +598,7 @@
         self.allBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.suangBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.submitBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.orderList.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         NSLog(@"单层");
     }else if(sender.tag == 4){
         if (self.umType == UmTypeWai) {
@@ -626,6 +630,7 @@
         self.allBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.danBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.submitBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.orderList.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         NSLog(@"双层");
     }else if(sender.tag == 5){
         if (self.checkType == MainCheckDan) {
@@ -647,12 +652,14 @@
         self.danBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.suangBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.submitBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.orderList.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         NSLog(@"取消");
     }else if(sender.tag == 6){
         self.submitBtn.backgroundColor = RGBACOLOR(251, 145, 50, 1);
         self.allBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.suangBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         self.danBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.orderList.backgroundColor = RGBACOLOR(239, 215, 66, 1);
         if (self.checkType == MainCheckDan) {
             if (self.danUmType == UmTypeNei) {
                 [self submitImage:self.danImage outImage:self.nilImage type:1 orgImage:self.orgImage];
@@ -663,6 +670,14 @@
             [self submitImage:self.suangNeiImage outImage:self.suangWaiImage type:2 orgImage:self.orgImage];
         }
         NSLog(@"提交");
+    }else if(sender.tag == 7){
+        self.orderList.backgroundColor = RGBACOLOR(251, 145, 50, 1);
+        self.submitBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.allBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.suangBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        self.danBtn.backgroundColor = RGBACOLOR(239, 215, 66, 1);
+        
+        NSLog(@"订单");
     }
 }
 
